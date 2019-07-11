@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。 1.介绍 2.本指南不适用的情况 3.代码布局 4.字符串引号 5.表达式和语句中的空格 6.什么时候使用尾部逗号 7.注释 8.命名规范 9.程序设计建议 代码布局">
+<meta name="description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
 <meta name="keywords" content="pep8,缩进,导入,空格,代码样式,代码风格,文件编码,代码布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python代码样式指南(3)-代码布局">
 <meta property="og:url" content="http://jihuawisdom.cn/2019/07/11/python代码样式指南-3-代码布局/index.html">
 <meta property="og:site_name" content="静水流深">
-<meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。 1.介绍 2.本指南不适用的情况 3.代码布局 4.字符串引号 5.表达式和语句中的空格 6.什么时候使用尾部逗号 7.注释 8.命名规范 9.程序设计建议 代码布局">
+<meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-11T14:59:47.303Z">
+<meta property="og:updated_time" content="2019-07-11T15:27:47.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python代码样式指南(3)-代码布局">
-<meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。 1.介绍 2.本指南不适用的情况 3.代码布局 4.字符串引号 5.表达式和语句中的空格 6.什么时候使用尾部逗号 7.注释 8.命名规范 9.程序设计建议 代码布局">
+<meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
 
 
 
@@ -417,17 +417,17 @@
 </tbody>
 </table>
 <p>PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。</p>
+<a id="more"></a>
 <p><a href="/2019/07/11/python代码样式指南-1-2">1.介绍</a></p>
 <p><a href="/2019/07/11/python代码样式指南-1-2">2.本指南不适用的情况</a></p>
 <p>3.代码布局</p>
-<p><a href="/2019/07/11/python代码样式指南-4-字符串引号/">4.字符串引号</a></p>
-<p>5.表达式和语句中的空格</p>
-<p>6.什么时候使用尾部逗号</p>
-<p>7.注释</p>
-<p>8.命名规范</p>
-<p>9.程序设计建议</p>
-<h1 id="代码布局"><a href="#代码布局" class="headerlink" title="代码布局"></a>代码布局</h1><a id="more"></a>
-<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p>每个缩进级别使用4个空格。<br>连续行应该对齐包裹的元素，或者垂直的使用Python的隐式行连接圆括号、中括号、大括号内的元素，或者使用悬挂缩进。使用悬挂缩进应注意以下几点；</p>
+<p>4.<a href="/2019/07/11/python代码样式指南-4-字符串引号/">字符串引号</a></p>
+<p>5.<a href="/2019/07/11/python代码样式指南-5-表达式和语句中的空格/">表达式和语句中的空格</a></p>
+<p>6.<a href="/2019/07/11/python代码样式指南-6-什么时候使用尾部逗号/">什么时候使用尾部逗号</a></p>
+<p>7.<a href="/2019/07/11/python代码样式指南-7-注释/">注释</a></p>
+<p>8.<a href="/2019/07/11/python代码样式指南-8-命名规范/">命名规范</a></p>
+<p>9.<a href="/2019/07/11/python代码样式指南-9-程序设计建议/">程序设计建议</a></p>
+<h1 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h1><p>每个缩进级别使用4个空格。<br>连续行应该对齐包裹的元素，或者垂直的使用Python的隐式行连接圆括号、中括号、大括号内的元素，或者使用悬挂缩进。使用悬挂缩进应注意以下几点；</p>
 <p>第一行没有参数并且使用更多的缩进来区别它本身和连续行。</p>
 <p>风格良好：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与起始分界符对齐</span></span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">                         var_three, var_four)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加4个空格（额外的缩进级别）以区分参数与其他语句</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">long_function_name</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        var_one, var_two, var_three,</span></span></span><br><span class="line"><span class="function"><span class="params">        var_four)</span>:</span></span><br><span class="line">    print(var_one)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 悬挂应该增加一个缩进级别</span></span><br><span class="line">foo = long_function_name(</span><br><span class="line">    var_one, var_two,</span><br><span class="line">    var_three, var_four)</span><br></pre></td></tr></table></figure>
@@ -441,8 +441,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">my_list = [</span><br><span class="line">    <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,</span><br><span class="line">    <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,</span><br><span class="line">    ]</span><br><span class="line">result = some_function_that_takes_arguments(</span><br><span class="line">    <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>,</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
 <p>或者是排列在开始多行结构的第一个字符下面，如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">my_list = [</span><br><span class="line">    <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,</span><br><span class="line">    <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,</span><br><span class="line">]</span><br><span class="line">result = some_function_that_takes_arguments(</span><br><span class="line">    <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h2 id="制表符还是空格？"><a href="#制表符还是空格？" class="headerlink" title="制表符还是空格？"></a>制表符还是空格？</h2><p>空格是缩进方法的首选。<br>制表符仅用于与已经用制表符做缩进的代码保持一致。<br>Python3不允许混用制表符和空格来缩进。<br>Python2代码混用制表符和空格缩进，将被转化为只使用空格。<br>调用Python2命令行解释器时使用-t选项，可对代码中非法混用制表符和空格发出警告。当使用-tt选项，警告将变成错误。这些选项是高度推荐的！</p>
-<h2 id="行的最大长度"><a href="#行的最大长度" class="headerlink" title="行的最大长度"></a>行的最大长度</h2><p>将所有的行都限制为最多79个字符。</p>
+<h1 id="制表符还是空格？"><a href="#制表符还是空格？" class="headerlink" title="制表符还是空格？"></a>制表符还是空格？</h1><p>空格是缩进方法的首选。<br>制表符仅用于与已经用制表符做缩进的代码保持一致。<br>Python3不允许混用制表符和空格来缩进。<br>Python2代码混用制表符和空格缩进，将被转化为只使用空格。<br>调用Python2命令行解释器时使用-t选项，可对代码中非法混用制表符和空格发出警告。当使用-tt选项，警告将变成错误。这些选项是高度推荐的！</p>
+<h1 id="行的最大长度"><a href="#行的最大长度" class="headerlink" title="行的最大长度"></a>行的最大长度</h1><p>将所有的行都限制为最多79个字符。</p>
 <p>对于长文本块（比如文档字符串或注释），行的长度应该限制在72个字符。</p>
 <p>限制了编辑器窗口宽度才可以并排打开多个文件，比如，使用代码审查工具并排显示相邻列的两个版本。</p>
 <p>大多数工具默认的换行折叠会破坏代码的可视化结构，使其更难以理解。选择79个字符是因为有些编辑器的窗口宽度设置为80个字符，即使该工具在最后一列中放置标记字形，也可以正常显示。一些基于网络的工具可能不会提供动态的自动换行。</p>
@@ -454,25 +454,25 @@
 <p>（为进一步思考With语句的多行缩进，见前面多行if语句的讨论。）</p>
 <p>另一个这样的例子是assert语句。</p>
 <p>另外注意，确保适当的连续行缩进。</p>
-<h2 id="换行应该在二元操作符的前面还是后面？"><a href="#换行应该在二元操作符的前面还是后面？" class="headerlink" title="换行应该在二元操作符的前面还是后面？"></a>换行应该在二元操作符的前面还是后面？</h2><p>过去几十年我们都是推荐把换行放在二元操作符的后面。但是这种做法会有两种破坏可读性的问题：1.多个二元操作符在屏幕上不在同一列，2.你想知道对一个被操作的对象做了什么操作，需要向上找一行。这导致你的眼睛不得不上下往返很多次才能搞清楚哪个数字是被加的，哪个数字是被减的：</p>
+<h1 id="换行应该在二元操作符的前面还是后面？"><a href="#换行应该在二元操作符的前面还是后面？" class="headerlink" title="换行应该在二元操作符的前面还是后面？"></a>换行应该在二元操作符的前面还是后面？</h1><p>过去几十年我们都是推荐把换行放在二元操作符的后面。但是这种做法会有两种破坏可读性的问题：1.多个二元操作符在屏幕上不在同一列，2.你想知道对一个被操作的对象做了什么操作，需要向上找一行。这导致你的眼睛不得不上下往返很多次才能搞清楚哪个数字是被加的，哪个数字是被减的：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不推荐的做法，操作符位置远离操作数</span></span><br><span class="line">income = (gross_wages +</span><br><span class="line">          taxable_interest +</span><br><span class="line">          (dividends - qualified_dividends) -</span><br><span class="line">          ira_deduction -</span><br><span class="line">          student_loan_interest)</span><br></pre></td></tr></table></figure>
 <p>为了解决可读性问题，数学家和印刷业者通常是在二元操作符之前换行的。Donald Knuth在他的《计算机与排版》系列文章中解释了这个传统规则：“虽然写在一段话中的公式经常在二元操作符的后面换行，但是单独展示的公式通常是在二元操作符的前面换行。”</p>
 <p>遵循数学传统，通常会产生更易读的代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 好的做法：很容易看出操作符和被操作对象之间的关系</span></span><br><span class="line">income = (gross_wages</span><br><span class="line">          + taxable_interest</span><br><span class="line">          + (dividends - qualified_dividends)</span><br><span class="line">          - ira_deduction</span><br><span class="line">          - student_loan_interest)</span><br></pre></td></tr></table></figure>
 <p>在Python代码中，只要约定在本地一致，就允许在二元运算符之前或之后中断。对于新代码，建议使用Knuth的样式</p>
-<h2 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h2><p>顶级函数、类的定义有两行空行包裹。</p>
+<h1 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h1><p>顶级函数、类的定义有两行空行包裹。</p>
 <p>类内部的函数定义有一个空行包裹。</p>
 <p>可以使用额外的空行（谨慎地）来分离相关的功能组。相关的行（例如：一组虚拟实现）之间不使用空行。</p>
 <p>在函数中也可以使用空行（谨慎地）来表示逻辑部分。</p>
 <p>Python接受control-L（即^L）换页符作为空白符；许多工具把这些字符作为分页符，所以你可以使用它们为文件中的相关部分分页。注意，一些编辑器和基于Web的代码查看器可能不能识别control-L是换页，将显示另外的字形。</p>
-<h2 id="源文件编码"><a href="#源文件编码" class="headerlink" title="源文件编码"></a>源文件编码</h2><p>Python核心发布版本中的代码应该一直使用UTF-8编码（或Python2中用ASCII）。<br>文件使用ASCII（Python2中）或UTF-8（Python3中）不应有编码声明。</p>
+<h1 id="源文件编码"><a href="#源文件编码" class="headerlink" title="源文件编码"></a>源文件编码</h1><p>Python核心发布版本中的代码应该一直使用UTF-8编码（或Python2中用ASCII）。<br>文件使用ASCII（Python2中）或UTF-8（Python3中）不应有编码声明。</p>
 <p>在标准库中，非默认编码仅用于测试目的，或注释、文档字符串需要提及包含非ASCII字符的作者名；否则，使用\x，\u，\U，或\N是字符串中包含非ASCII数据的首先方式。</p>
 <p>Python3.0及以上版本中，为标准库（参见PEP 3131）规定以下策略：Python标准库中的所有标识符必须使用ASCII标识符，并尽可能使用英文单词（在很多例子中，使用非英文的缩写和专业术语）。另外，字符串和注释必须用ASCII。</p>
 <p>仅有的例外是：</p>
 <p>（a）测试非ASCII功能的测试用例</p>
 <p>（b）作者名字。名字不是基于拉丁字母表的作者名，必须提供一个他们名字的拉丁字母表的音译。</p>
 <p>鼓励全球受众的开源项目采用类似的政策。</p>
-<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><ul>
+<h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><ul>
 <li>导入通常是单独一行，例如：</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 风格良好</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br></pre></td></tr></table></figure>
@@ -505,7 +505,7 @@
 <p>用这种方式重新命名，下面的有关公共和内部接口的指南仍适用。</p>
 </li>
 </ul>
-<h2 id="模块级别的内置属性"><a href="#模块级别的内置属性" class="headerlink" title="模块级别的内置属性"></a>模块级别的内置属性</h2><p>模块级别的内置属性（名字有前后双下划线的），例如__all__, __author__, __version__，应该放置在模块的文档字符串后，任意import语句之前，from __future__导入除外。Python要求futures导入必须在除文档字符串外任何模块代码之前。</p>
+<h1 id="模块级别的内置属性"><a href="#模块级别的内置属性" class="headerlink" title="模块级别的内置属性"></a>模块级别的内置属性</h1><p>模块级别的内置属性（名字有前后双下划线的），例如__all__, __author__, __version__，应该放置在模块的文档字符串后，任意import语句之前，from __future__导入除外。Python要求futures导入必须在除文档字符串外任何模块代码之前。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""This is the example module.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">This module does stuff.</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> barry_as_FLUFL</span><br><span class="line"></span><br><span class="line">__all__ = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">__version__ = <span class="string">'0.1'</span></span><br><span class="line">__author__ = <span class="string">'Cardinal Biggles'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -672,7 +672,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -694,7 +694,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -764,7 +764,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#代码布局"><span class="nav-number">1.</span> <span class="nav-text">代码布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缩进"><span class="nav-number">1.1.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#制表符还是空格？"><span class="nav-number">1.2.</span> <span class="nav-text">制表符还是空格？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行的最大长度"><span class="nav-number">1.3.</span> <span class="nav-text">行的最大长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换行应该在二元操作符的前面还是后面？"><span class="nav-number">1.4.</span> <span class="nav-text">换行应该在二元操作符的前面还是后面？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空行"><span class="nav-number">1.5.</span> <span class="nav-text">空行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源文件编码"><span class="nav-number">1.6.</span> <span class="nav-text">源文件编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入"><span class="nav-number">1.7.</span> <span class="nav-text">导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块级别的内置属性"><span class="nav-number">1.8.</span> <span class="nav-text">模块级别的内置属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缩进"><span class="nav-number">1.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#制表符还是空格？"><span class="nav-number">2.</span> <span class="nav-text">制表符还是空格？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#行的最大长度"><span class="nav-number">3.</span> <span class="nav-text">行的最大长度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#换行应该在二元操作符的前面还是后面？"><span class="nav-number">4.</span> <span class="nav-text">换行应该在二元操作符的前面还是后面？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#空行"><span class="nav-number">5.</span> <span class="nav-text">空行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源文件编码"><span class="nav-number">6.</span> <span class="nav-text">源文件编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导入"><span class="nav-number">7.</span> <span class="nav-text">导入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模块级别的内置属性"><span class="nav-number">8.</span> <span class="nav-text">模块级别的内置属性</span></a></li></ol></div>
             
 
           </div>
