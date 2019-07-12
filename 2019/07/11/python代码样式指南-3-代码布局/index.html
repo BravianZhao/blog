@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="静水流深">
 <meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-11T15:33:13.053Z">
+<meta property="og:updated_time" content="2019-07-12T10:34:53.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python代码样式指南(3)-代码布局">
 <meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
@@ -427,20 +427,31 @@
 <p>7.<a href="/2019/07/11/python代码样式指南-7-注释/">注释</a></p>
 <p>8.<a href="/2019/07/11/python代码样式指南-8-命名规范/">命名规范</a></p>
 <p>9.<a href="/2019/07/11/python代码样式指南-9-程序设计建议/">程序设计建议</a></p>
-<h1 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h1><p>每个缩进级别使用4个空格。<br>连续行应该对齐包裹的元素，或者垂直的使用Python的隐式行连接圆括号、中括号、大括号内的元素，或者使用悬挂缩进。使用悬挂缩进应注意以下几点；</p>
-<p>第一行没有参数并且使用更多的缩进来区别它本身和连续行。</p>
+<h1 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h1><p>每个缩进级别使用4个空格。<br>连续行应该对齐包裹的元素，或者垂直对齐 Python 隐式换行连接中的圆括号、中括号、大括号内的元素，或者使用悬挂缩进(悬挂缩进就是括号内的元素从下一行开始)。</p>
+<p>使用悬挂缩进应注意以下几点；</p>
+<ul>
+<li><p>第一行没有参数并且使用更多的缩进来区别它本身和连续行。</p>
 <p>风格良好：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与起始分界符对齐</span></span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">                         var_three, var_four)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加4个空格（额外的缩进级别）以区分参数与其他语句</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">long_function_name</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        var_one, var_two, var_three,</span></span></span><br><span class="line"><span class="function"><span class="params">        var_four)</span>:</span></span><br><span class="line">    print(var_one)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 悬挂应该增加一个缩进级别</span></span><br><span class="line">foo = long_function_name(</span><br><span class="line">    var_one, var_two,</span><br><span class="line">    var_three, var_four)</span><br></pre></td></tr></table></figure>
 <p>风格不良：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不使用垂直对齐时禁止在第一行上放置参数</span></span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">    var_three, var_four)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 因为无法区分参数和语句，所以需要进一步缩进</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">long_function_name</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    var_one, var_two, var_three,</span></span></span><br><span class="line"><span class="function"><span class="params">    var_four)</span>:</span></span><br><span class="line">    print(var_one)</span><br></pre></td></tr></table></figure>
-<p>对于连续行，4个空格规则是可选的，比如可以缩进2个空格。<br>可选的：</p>
+</li>
+</ul>
+<ul>
+<li><p>对于连续行，4个空格规则是可选的，比如可以缩进2个空格。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 悬挂缩进*可以*缩进到除4个空格以外的其他位置.</span></span><br><span class="line">foo = long_function_name(</span><br><span class="line">  var_one, var_two,</span><br><span class="line">  var_three, var_four)</span><br></pre></td></tr></table></figure>
-<p>if语句条件块非常长需要编写多行时，需要注意的是，两个字符组成的关键字（例如if），加上一个空格，加上开括号正好4个字符，此时为多行条件的后续行创建的也是4个空格的缩进。这和嵌入if内的缩进语句会产生视觉冲突，因为它们也是缩进4个空格。这个点PEP没有明确说明如何（是否）进一步区分条件行和if语句内的嵌入行。这种情况下，可以接受的选项包括但不仅限于下面几种：</p>
+</li>
+<li><p>if语句条件块非常长需要编写多行时，需要注意的是，两个字符组成的关键字（例如if），加上一个空格，加上开括号正好4个字符，此时为多行条件的后续行创建的也是4个空格的缩进。这和嵌入if内的缩进语句会产生视觉冲突，因为它们也是缩进4个空格。这个点PEP没有明确说明如何（是否）进一步区分条件行和if语句内的嵌入行。这种情况下，可以接受的选项包括但不仅限于下面几种：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 没有额外的缩进</span></span><br><span class="line"><span class="keyword">if</span> (this_is_one_thing <span class="keyword">and</span></span><br><span class="line">    that_is_another_thing):</span><br><span class="line">    do_something()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加一行注释，通过注释的语法高亮来做区分</span></span><br><span class="line"><span class="keyword">if</span> (this_is_one_thing <span class="keyword">and</span></span><br><span class="line">    that_is_another_thing):</span><br><span class="line">    <span class="comment"># Since both conditions are true, we can frobnicate.</span></span><br><span class="line">    do_something()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在条件的连续行上增加一个缩进</span></span><br><span class="line"><span class="keyword">if</span> (this_is_one_thing</span><br><span class="line">        <span class="keyword">and</span> that_is_another_thing):</span><br><span class="line">    do_something()</span><br></pre></td></tr></table></figure>
-<p>多行结构中的结束花括号/中括号/圆括号可以在列表最后一行的第一个非空白字符下排列，如：</p>
+</li>
+</ul>
+<ul>
+<li><p>多行结构中的结束花括号/中括号/圆括号可以在列表最后一行的第一个非空白字符下排列，如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">my_list = [</span><br><span class="line">    <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,</span><br><span class="line">    <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,</span><br><span class="line">    ]</span><br><span class="line">result = some_function_that_takes_arguments(</span><br><span class="line">    <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>,</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-<p>或者是排列在开始多行结构的第一个字符下面，如：</p>
+<p>或者是排列在开始多行结构的第一个字符下面（pycharm 默认采用的这种），如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">my_list = [</span><br><span class="line">    <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,</span><br><span class="line">    <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,</span><br><span class="line">]</span><br><span class="line">result = some_function_that_takes_arguments(</span><br><span class="line">    <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h1 id="制表符还是空格？"><a href="#制表符还是空格？" class="headerlink" title="制表符还是空格？"></a>制表符还是空格？</h1><p>空格是缩进方法的首选。<br>制表符仅用于与已经用制表符做缩进的代码保持一致。<br>Python3不允许混用制表符和空格来缩进。<br>Python2代码混用制表符和空格缩进，将被转化为只使用空格。<br>调用Python2命令行解释器时使用-t选项，可对代码中非法混用制表符和空格发出警告。当使用-tt选项，警告将变成错误。这些选项是高度推荐的！</p>
 <h1 id="行的最大长度"><a href="#行的最大长度" class="headerlink" title="行的最大长度"></a>行的最大长度</h1><p>将所有的行都限制为最多79个字符。</p>
 <p>对于长文本块（比如文档字符串或注释），行的长度应该限制在72个字符。</p>
@@ -454,12 +465,18 @@
 <p>（为进一步思考With语句的多行缩进，见前面多行if语句的讨论。）</p>
 <p>另一个这样的例子是assert语句。</p>
 <p>另外注意，确保适当的连续行缩进。</p>
-<h1 id="换行应该在二元操作符的前面还是后面？"><a href="#换行应该在二元操作符的前面还是后面？" class="headerlink" title="换行应该在二元操作符的前面还是后面？"></a>换行应该在二元操作符的前面还是后面？</h1><p>过去几十年我们都是推荐把换行放在二元操作符的后面。但是这种做法会有两种破坏可读性的问题：1.多个二元操作符在屏幕上不在同一列，2.你想知道对一个被操作的对象做了什么操作，需要向上找一行。这导致你的眼睛不得不上下往返很多次才能搞清楚哪个数字是被加的，哪个数字是被减的：</p>
+<h1 id="换行应该在二元操作符的前面还是后面？"><a href="#换行应该在二元操作符的前面还是后面？" class="headerlink" title="换行应该在二元操作符的前面还是后面？"></a>换行应该在二元操作符的前面还是后面？</h1><p>过去几十年我们都是推荐把换行放在二元操作符的后面。但是这种做法会有两种破坏可读性的问题：</p>
+<ol>
+<li><p>多个二元操作符在屏幕上不在同一列；</p>
+</li>
+<li><p>你想知道对一个被操作的对象做了什么操作，需要向上找一行。这导致你的眼睛不得不上下往返很多次才能搞清楚哪个数字是被加的，哪个数字是被减的：</p>
+</li>
+</ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不推荐的做法，操作符位置远离操作数</span></span><br><span class="line">income = (gross_wages +</span><br><span class="line">          taxable_interest +</span><br><span class="line">          (dividends - qualified_dividends) -</span><br><span class="line">          ira_deduction -</span><br><span class="line">          student_loan_interest)</span><br></pre></td></tr></table></figure>
-<p>为了解决可读性问题，数学家和印刷业者通常是在二元操作符之前换行的。Donald Knuth在他的《计算机与排版》系列文章中解释了这个传统规则：“虽然写在一段话中的公式经常在二元操作符的后面换行，但是单独展示的公式通常是在二元操作符的前面换行。”</p>
+<p>为了解决可读性问题，数学家和印刷业者通常是<strong>在二元操作符之前换行</strong>的。Donald Knuth在他的《计算机与排版》系列文章中解释了这个传统规则：“虽然写在一段话中的公式经常在二元操作符的后面换行，但是单独展示的公式通常是在二元操作符的前面换行。”</p>
 <p>遵循数学传统，通常会产生更易读的代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 好的做法：很容易看出操作符和被操作对象之间的关系</span></span><br><span class="line">income = (gross_wages</span><br><span class="line">          + taxable_interest</span><br><span class="line">          + (dividends - qualified_dividends)</span><br><span class="line">          - ira_deduction</span><br><span class="line">          - student_loan_interest)</span><br></pre></td></tr></table></figure>
-<p>在Python代码中，只要约定在本地一致，就允许在二元运算符之前或之后中断。对于新代码，建议使用Knuth的样式</p>
+<p>在 Python 代码中，只要约定在本地一致，就允许在二元运算符之前或之后中断。对于新代码，建议使用Knuth的样式</p>
 <h1 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h1><p>顶级函数、类的定义有两行空行包裹。</p>
 <p>类内部的函数定义有一个空行包裹。</p>
 <p>可以使用额外的空行（谨慎地）来分离相关的功能组。相关的行（例如：一组虚拟实现）之间不使用空行。</p>
