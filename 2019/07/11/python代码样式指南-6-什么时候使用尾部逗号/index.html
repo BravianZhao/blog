@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="pep8,代码样式,代码风格,逗号," />
+  <meta name="keywords" content="pep8,代码样式,代码风格,逗号,尾部逗号," />
 
 
 
@@ -82,14 +82,14 @@
 
 
 <meta name="description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第6小节，其他小节可以通过下面链接阅读。">
-<meta name="keywords" content="pep8,代码样式,代码风格,逗号">
+<meta name="keywords" content="pep8,代码样式,代码风格,逗号,尾部逗号">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python代码样式指南(6)-什么时候使用尾部逗号">
 <meta property="og:url" content="http://jihuawisdom.cn/2019/07/11/python代码样式指南-6-什么时候使用尾部逗号/index.html">
 <meta property="og:site_name" content="静水流深">
 <meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第6小节，其他小节可以通过下面链接阅读。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-11T15:32:52.295Z">
+<meta property="og:updated_time" content="2019-07-12T12:01:19.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python代码样式指南(6)-什么时候使用尾部逗号">
 <meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第6小节，其他小节可以通过下面链接阅读。">
@@ -429,7 +429,7 @@
 <p>9.<a href="/2019/07/11/python代码样式指南-9-程序设计建议/">程序设计建议</a></p>
 <h1 id="什么时候使用尾部逗号"><a href="#什么时候使用尾部逗号" class="headerlink" title="什么时候使用尾部逗号"></a>什么时候使用尾部逗号</h1><p>尾部逗号通常都是可选的，除了一些强制的场景，比如元组在只有一个元素的时候需要一个尾部逗号。为了代码更加清晰，元组只有一个元素时请务必用括号括起来（语法上没有强制要求）：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 推荐做法</span></span><br><span class="line">FILES = (<span class="string">'setup.cfg'</span>,)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不推荐做法</span></span><br><span class="line">FILES = <span class="string">'setup.cfg'</span>,</span><br></pre></td></tr></table></figure>
-<p>当尾部逗号不是必须时，如果你用了版本控制系统那么它将很有用。当列表元素、参数、导入项未来可能不断增加时，留一个尾部逗号是一个很好的选择。通常的用法是（比如列表）每个元素独占一行，然后尾部都有逗号，在最后一个元素的下一行写闭标签。如果你的数据结构都是写在同一行的，就没有必要保留尾部逗号了。</p>
+<p>当尾部逗号不是必须时，如果你用了版本控制系统那么它将很有用。当列表元素、参数、导入项未来可能不断增加时，留一个尾部逗号是一个很好的选择。通常的用法是（比如列表）<strong>每个元素独占一行，然后尾部都有逗号，在最后一个元素的下一行写闭标签。如果你的数据结构都是写在同一行的，就没有必要保留尾部逗号了。</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 推荐做法</span></span><br><span class="line">FILES = [</span><br><span class="line">    <span class="string">'setup.cfg'</span>,</span><br><span class="line">    <span class="string">'tox.ini'</span>,</span><br><span class="line">    ]</span><br><span class="line">initialize(FILES,</span><br><span class="line">           error=<span class="keyword">True</span>,</span><br><span class="line">           )</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不推荐做法</span></span><br><span class="line">FILES = [<span class="string">'setup.cfg'</span>, <span class="string">'tox.ini'</span>,]</span><br><span class="line">initialize(FILES, error=<span class="keyword">True</span>,)</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -478,6 +478,8 @@
             <a href="/tags/代码风格/" rel="tag"># 代码风格</a>
           
             <a href="/tags/逗号/" rel="tag"># 逗号</a>
+          
+            <a href="/tags/尾部逗号/" rel="tag"># 尾部逗号</a>
           
         </div>
       
@@ -610,7 +612,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
