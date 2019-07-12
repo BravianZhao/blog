@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="静水流深">
 <meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-12T11:06:56.293Z">
+<meta property="og:updated_time" content="2019-07-12T11:26:28.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python代码样式指南(3)-代码布局">
 <meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
@@ -522,7 +522,7 @@
 <p>用这种方式重新命名，下面的有关公共和内部接口的指南仍适用。</p>
 </li>
 </ul>
-<h1 id="模块级别的内置属性"><a href="#模块级别的内置属性" class="headerlink" title="模块级别的内置属性"></a>模块级别的内置属性</h1><p>模块级别的内置属性（名字有前后双下划线的），例如__all__, __author__, __version__，应该放置在模块的文档字符串后，任意import语句之前，from __future__导入除外。Python要求futures导入必须在除文档字符串外任何模块代码之前。</p>
+<h1 id="模块级别的内置属性"><a href="#模块级别的内置属性" class="headerlink" title="模块级别的内置属性"></a>模块级别的内置属性</h1><p>模块级别的内置属性（名字有前后双下划线的），例如__all__, __author__, __version__，<strong>应该放置在模块的文档字符串后，任意import语句之前</strong>，from __future__导入除外。Python要求futures导入必须在除文档字符串外任何模块代码之前。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""This is the example module.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">This module does stuff.</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> barry_as_FLUFL</span><br><span class="line"></span><br><span class="line">__all__ = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">__version__ = <span class="string">'0.1'</span></span><br><span class="line">__author__ = <span class="string">'Cardinal Biggles'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br></pre></td></tr></table></figure>
       
     </div>
