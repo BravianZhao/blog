@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="静水流深">
 <meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-12T10:47:26.099Z">
+<meta property="og:updated_time" content="2019-07-12T11:06:56.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python代码样式指南(3)-代码布局">
 <meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
@@ -482,9 +482,9 @@
 <p>可以使用额外的空行（谨慎地）来分离相关的功能组。组内相关代码的行（例如：一组虚拟实现）之间不使用空行。</p>
 <p>在函数中也可以使用空行（谨慎地）来分割不同逻辑部分。</p>
 <p>Python接受control-L（即^L）换页符作为空白符；许多工具把这些字符作为分页符，所以你可以使用它们为文件中的相关部分分页。注意，一些编辑器和基于Web的代码查看器可能不能识别control-L是换页，将显示另外的字形。</p>
-<h1 id="源文件编码"><a href="#源文件编码" class="headerlink" title="源文件编码"></a>源文件编码</h1><p>Python核心发布版本中的代码应该一直使用UTF-8编码（或Python2中用ASCII）。<br>文件使用ASCII（Python2中）或UTF-8（Python3中）不应有编码声明。</p>
+<h1 id="源文件编码"><a href="#源文件编码" class="headerlink" title="源文件编码"></a>源文件编码</h1><p>Python核心发布版本中的代码应该一直使用<strong>UTF-8编码</strong>（或Python2中用<strong>ASCII</strong>）。<br>文件使用ASCII（Python2中）或UTF-8（Python3中）不应有编码声明。</p>
 <p>在标准库中，非默认编码仅用于测试目的，或注释、文档字符串需要提及包含非ASCII字符的作者名；否则，使用\x，\u，\U，或\N是字符串中包含非ASCII数据的首先方式。</p>
-<p>Python3.0及以上版本中，为标准库（参见PEP 3131）规定以下策略：Python标准库中的所有标识符必须使用ASCII标识符，并尽可能使用英文单词（在很多例子中，使用非英文的缩写和专业术语）。另外，字符串和注释必须用ASCII。</p>
+<p>Python3.0及以上版本中，为标准库（参见PEP 3131）规定以下策略：<strong>Python标准库中的所有标识符必须使用ASCII标识符</strong>，并尽可能使用英文单词（在很多例子中，使用非英文的缩写和专业术语）。另外，字符串和注释必须用ASCII。</p>
 <p>仅有的例外是：</p>
 <p>（a）测试非ASCII功能的测试用例</p>
 <p>（b）作者名字。名字不是基于拉丁字母表的作者名，必须提供一个他们名字的拉丁字母表的音译。</p>
@@ -506,11 +506,11 @@
 </ol>
 <p>在每个导入组之间放一行空行。</p>
 </li>
-<li><p>建议使用绝对导入，因为如果导入系统配置不正确（例如，当包中的目录最终出现在sys.path上时），它们具有更好的可读性并且往往表现更好（或至少提供更好的错误消息）：</p>
+<li><p><strong>建议使用绝对导入</strong>，如果导入系统配置不正确时（例如，当包中的目录最终出现在sys.path上时），绝对导入具有更好的可读性，并且往往表现更好（或至少提供更好的错误消息）：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mypkg.sibling</span><br><span class="line"><span class="keyword">from</span> mypkg <span class="keyword">import</span> sibling</span><br><span class="line"><span class="keyword">from</span> mypkg.sibling <span class="keyword">import</span> example</span><br></pre></td></tr></table></figure>
-<p>显式相对导入也是可接受的方法，尤其是在处理复杂的包布局时，使用绝对导入会不必要地冗长</p>
+<p><strong>显式相对导入也是可接受的方法</strong>，尤其是在处理复杂的包布局时，使用绝对导入会不必要地冗长</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> sibling</span><br><span class="line"><span class="keyword">from</span> .sibling <span class="keyword">import</span> example</span><br></pre></td></tr></table></figure>
-<p>标准库代码应该避免复杂包布局并使用绝对导入。<br>隐式的相对导入应该永远不被使用，并且在Python3中已经移除。</p>
+<p>标准库代码应该避免复杂包布局并使用绝对导入。<br><strong>隐式的相对导入应该永远不被使用</strong>，并且在Python3中已经移除。</p>
 </li>
 <li><p>从一个包含类的模块中导入类时，通常下面这样是好的写法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> myclass <span class="keyword">import</span> MyClass</span><br><span class="line"><span class="keyword">from</span> foo.bar.yourclass <span class="keyword">import</span> YourClass</span><br></pre></td></tr></table></figure>
@@ -518,7 +518,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> myclass</span><br><span class="line"><span class="keyword">import</span> foo.bar.yourclass</span><br></pre></td></tr></table></figure>
 <p>并使用“myclass.MyClass”和“foo.bar.yourclass.YourClass”来访问。</p>
 </li>
-<li><p>避免使用通配符导入（from <module> import *），因为用它们会不清楚命名空间中存在哪些名称，使读者和许多自动化工具混淆。通配符导入有一种合理的使用情况，重新发布一个内部接口作为一个公共API的一部分（例如，重写一个纯Python实现的接口，该接口从一个可选的加速器模块定义并且哪些定义将被重写提前并不知道）。</module></p>
+<li><p><strong>避免使用通配符导入</strong>（from <module> import *），因为用它们会不清楚命名空间中存在哪些名称，使读者和许多自动化工具混淆。通配符导入有一种合理的使用情况，重新发布一个内部接口作为一个公共API的一部分（例如，重写一个纯Python实现的接口，该接口从一个可选的加速器模块定义并且哪些定义将被重写提前并不知道）。</module></p>
 <p>用这种方式重新命名，下面的有关公共和内部接口的指南仍适用。</p>
 </li>
 </ul>
