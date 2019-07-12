@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="静水流深">
 <meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-12T10:42:47.840Z">
+<meta property="og:updated_time" content="2019-07-12T10:47:26.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python代码样式指南(3)-代码布局">
 <meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第3小节，其他小节可以通过下面链接阅读。">
@@ -479,8 +479,8 @@
 <p>在 Python 代码中，只要约定在本地一致，就允许在二元运算符之前或之后中断。对于新代码，建议使用Knuth的样式</p>
 <h1 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h1><p>顶级函数、类的定义有两行空行包裹。</p>
 <p>类内部的函数定义有一个空行包裹。</p>
-<p>可以使用额外的空行（谨慎地）来分离相关的功能组。相关的行（例如：一组虚拟实现）之间不使用空行。</p>
-<p>在函数中也可以使用空行（谨慎地）来表示逻辑部分。</p>
+<p>可以使用额外的空行（谨慎地）来分离相关的功能组。组内相关代码的行（例如：一组虚拟实现）之间不使用空行。</p>
+<p>在函数中也可以使用空行（谨慎地）来分割不同逻辑部分。</p>
 <p>Python接受control-L（即^L）换页符作为空白符；许多工具把这些字符作为分页符，所以你可以使用它们为文件中的相关部分分页。注意，一些编辑器和基于Web的代码查看器可能不能识别control-L是换页，将显示另外的字形。</p>
 <h1 id="源文件编码"><a href="#源文件编码" class="headerlink" title="源文件编码"></a>源文件编码</h1><p>Python核心发布版本中的代码应该一直使用UTF-8编码（或Python2中用ASCII）。<br>文件使用ASCII（Python2中）或UTF-8（Python3中）不应有编码声明。</p>
 <p>在标准库中，非默认编码仅用于测试目的，或注释、文档字符串需要提及包含非ASCII字符的作者名；否则，使用\x，\u，\U，或\N是字符串中包含非ASCII数据的首先方式。</p>
