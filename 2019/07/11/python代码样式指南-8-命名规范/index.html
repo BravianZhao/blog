@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="静水流深">
 <meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第8小节，其他小节可以通过下面链接阅读。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-13T12:45:58.865Z">
+<meta property="og:updated_time" content="2019-07-13T14:21:55.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python代码样式指南(8)-命名规范">
 <meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第8小节，其他小节可以通过下面链接阅读。">
@@ -472,45 +472,48 @@
 <h1 id="规定性：命名约定"><a href="#规定性：命名约定" class="headerlink" title="规定性：命名约定"></a>规定性：命名约定</h1><h2 id="避免采用的名字"><a href="#避免采用的名字" class="headerlink" title="避免采用的名字"></a>避免采用的名字</h2><p>不要使用字符‘l’（小写字母el），‘O’（大写字母oh）或‘I’（大写字母eye）作为单字符变量名。</p>
 <p>在某些字体中，这些字符与数字1和0是没有区别的。当想使用‘l’时，用‘L’代替。</p>
 <h2 id="ASCII兼容性"><a href="#ASCII兼容性" class="headerlink" title="ASCII兼容性"></a>ASCII兼容性</h2><p>标准库中使用的标识符必须与ASCII兼容，如PEP 3131的策略部分所描述。</p>
-<h2 id="包名和模块名"><a href="#包名和模块名" class="headerlink" title="包名和模块名"></a>包名和模块名</h2><p>模块应具有简短的全小写名称。可以在模块名中使用下划线来提高可读性。Python包也应该有简短的全小写名称，但不鼓励使用下划线。</p>
-<p>当一个C或C++编写的扩展模块，伴随Python模块来提供了一个更高层次（例如更面向对象）的接口时，C/C++模块名有一个前导下划线（如_socket）。</p>
-<h2 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h2><p>类名通常使用单词首字母大写的CapWords（驼峰）规则。</p>
+<h2 id="包名和模块名"><a href="#包名和模块名" class="headerlink" title="包名和模块名"></a>包名和模块名</h2><p><strong>模块</strong>应具有简短的<strong>全小写名称</strong>。可以在模块名中<strong>使用下划线</strong>来提高可读性。</p>
+<p>Python <strong>包</strong>也应该有简短的<strong>全小写名称</strong>，但<strong>不鼓励使用下划线</strong>。</p>
+<p>当一个用 C 或 C++ 编写的扩展模块，伴随有用 Python 模块来提供了一个更高层次（例如更面向对象）的接口时，C/C++ 模块名有一个前导下划线（如 _socket）。</p>
+<h2 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h2><p><strong>类名</strong>通常使用<strong>单词首字母大写的 CapWords（驼峰）规则</strong>。</p>
 <p>在接口被记录并主要用作可调用的情况下，可以使用函数的命名约定。</p>
-<p>请注意，内置名称有一个单独的约定：大多数内置名称是单个单词（或两个单词一起运行），CapWords约定仅用于异常名称和内置常量。</p>
-<h2 id="类型变量的名称"><a href="#类型变量的名称" class="headerlink" title="类型变量的名称"></a>类型变量的名称</h2><p>类型变量的名称应该使用单词首字母大写的CapWords（驼峰）规则，并且尽量短，比如：T, AnyStr, Num。对于协变量和有协变行为的变量，建议添加后缀 __co 或者 __contra。</p>
+<p>请注意，内置名称有一个单独的约定：大多数内置名称是单个单词（或两个单词一起运行），CapWords 约定仅用于异常名称和内置常量。</p>
+<h2 id="类型变量的名称"><a href="#类型变量的名称" class="headerlink" title="类型变量的名称"></a>类型变量的名称</h2><p><strong>类型变量</strong>的名称应该使用<strong>单词首字母大写的 CapWords（驼峰）规则</strong>，并且尽量短，比如：T, AnyStr, Num。对于协变量和有协变行为的变量，建议添加后缀 __co 或者 __contra。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> TypeVar</span><br><span class="line"></span><br><span class="line">VT_co = TypeVar(<span class="string">'VT_co'</span>, covariant=<span class="keyword">True</span>)</span><br><span class="line">KT_contra = TypeVar(<span class="string">'KT_contra'</span>, contravariant=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="异常名"><a href="#异常名" class="headerlink" title="异常名"></a>异常名</h2><p>因为异常应该是类，所以异常的命名和类的命名规则一样。不过，如果这个异常确实是一个错误，异常名应该使用后缀“Error”。</p>
-<h2 id="全局变量名"><a href="#全局变量名" class="headerlink" title="全局变量名"></a>全局变量名</h2><p>（希望这些变量是在一个模块内使用。）全局变量名命名约定和函数的命名约定相同。</p>
-<p>模块设计为通过from M import *来使用，应使用 __all__ 机制防止导出全局变量，或使用加前缀的旧规则，为全局变量加下划线，来表明这些全局变量是“非公开模块”。</p>
-<h2 id="函数和变量名"><a href="#函数和变量名" class="headerlink" title="函数和变量名"></a>函数和变量名</h2><p>函数名应该是小写字母，必要时单词之间用下划线分开，以提高可读性。</p>
-<p>变量名称遵循与函数名称相同的约定。</p>
+<h2 id="异常名"><a href="#异常名" class="headerlink" title="异常名"></a>异常名</h2><p>因为<strong>异常</strong>应该是类，所以异常的命名和类的命名规则一样，<strong>使用单词首字母大写的 CapWords（驼峰）规则</strong>。不过，如果这个异常确实是一个<strong>错误</strong>，异常名应该使用<strong>后缀“Error”</strong>。</p>
+<h2 id="全局变量名"><a href="#全局变量名" class="headerlink" title="全局变量名"></a>全局变量名</h2><p>（希望这些变量是在一个模块内使用。）<strong>全局变量名</strong>命名约定和函数的命名约定相同，应该是<strong>小写字母，必要时单词之间用下划线分开</strong>。</p>
+<p>模块设计为通过from M import *来使用，应使用 __all__ 机制防止导出全局变量，或使用加前缀的旧规则，为全局变量加<strong>前置单下划线</strong>，来表明这些全局变量是“非公开模块”。</p>
+<h2 id="函数和变量名"><a href="#函数和变量名" class="headerlink" title="函数和变量名"></a>函数和变量名</h2><p><strong>函数名</strong>应该是<strong>小写字母，必要时单词之间用下划线分开</strong>，以提高可读性。</p>
+<p><strong>变量名</strong>称遵循与函数名称相同的约定。</p>
 <p>混合大小写只被允许用在这种风格已经占主导地位的上下文中（例如threading.py），以保持向后兼容性。</p>
-<h2 id="函数和方法参数"><a href="#函数和方法参数" class="headerlink" title="函数和方法参数"></a>函数和方法参数</h2><p>使用self为实例化方法的第一个参数。</p>
-<p>使用cls为类方法的第一个参数。</p>
-<p>如果函数的参数名与保留关键字冲突，最好是为参数名添加一个后置下划线，而不是使用缩写或拼写错误。</p>
+<h2 id="函数和方法参数"><a href="#函数和方法参数" class="headerlink" title="函数和方法参数"></a>函数和方法参数</h2><p>参数名和变量名遵循相同的约定，<strong>小写字母，必要时单词之间用下划线分开</strong>，以提高可读性。</p>
+<p>使用 <strong>self 为实例化方法的第一个参数</strong>。</p>
+<p>使用 <strong>cls 为类方法的第一个参数</strong>。</p>
+<p>如果函数的参数名<strong>与保留关键字冲突，最好是为参数名添加单个后置下划线</strong>，而不是使用缩写或拼写错误。</p>
 <p>因此class_ 比clss好。（也许使用同义词来避免更好。）。</p>
-<h2 id="方法名和实例变量"><a href="#方法名和实例变量" class="headerlink" title="方法名和实例变量"></a>方法名和实例变量</h2><p>采用函数命名规则：全部使用小写字母，必要时单词之间，用下划线分开，以提高可读性。</p>
+<h2 id="类的方法名和实例变量"><a href="#类的方法名和实例变量" class="headerlink" title="类的方法名和实例变量"></a>类的方法名和实例变量</h2><p>采用函数命名规则：<strong>全部使用小写字母，必要时单词之间用下划线分开</strong>，以提高可读性。</p>
 <p>只对非公开的方法和实例变量使用一个前置下划线。</p>
-<p>为了避免和子类命名冲突，使用两个前置下划线，来调用Python的名称修改规则。</p>
-<p>Python用类名修改这些名字：如果类 Foo 有一个属性名为__a，通过 Foo.__a 不能访问，需要调用Foo._Foo__a来访问。通常，两个前置下划线只用来避免与子类的属性名冲突。</p>
+<p>为了避免和子类命名冲突，使用两个前置下划线，来调用 Python 的名称修改规则。</p>
+<p>Python用类名修改这些名字：如果类 Foo 有一个属性名为__a，通过 Foo.__a 不能访问，需要调用Foo._Foo__a来访问。通常，<strong>两个前置下划线只用来避免与子类的属性名冲突</strong>。</p>
 <p>注意：关于__names 的使用存在一些争论（见下文）。</p>
-<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>常量通常定义于模块级别，并且所有的字母都是大写，单词用下划线分开。例如MAX_OVERFLOW和TOTAL。</p>
-<h2 id="继承的设计"><a href="#继承的设计" class="headerlink" title="继承的设计"></a>继承的设计</h2><p>务必要确定类的方法和实例变量（统称为：“属性”）是否公开，如果有疑问，那就选择非公开，因为以后把其变成公开比把一个公开属性改成非公开要容易。</p>
-<p>public 属性是指你希望与你的类不相关的客户端使用的属性，您承诺避免向后不兼容的更改。非公开属性是指不打算由第三方使用的属性;您不能保证非公共属性不会更改甚至不会被删除。</p>
-<p>在这里没有使用术语“private”，因为Python中没有真正私有的属性（python中没有通常的不必要的工作）。</p>
-<p>另一类属性是属于“子类API”的属性（通常在其他语言中称为“protected”）。某些类被设计为基类，要么扩展，要么修改类的某些方面的行为。在设计这样的类的时候，要明确确定哪些属性是公开的，哪些属性是子类API的一部分，哪些属性是真正只在你的基类中使用。</p>
-<p>出于这种考虑，下面有一份Python特色的指南：</p>
+<p><strong>变量、函数、全局变量、函数和方法参数、方法、实例变量</strong> 的命名规则都相同，<strong>全部使用小写字母，必要时单词之间用下划线分开</strong>。</p>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p><strong>常量</strong>通常定义于模块级别，并且<strong>所有的字母都是大写，单词用下划线分开</strong>。例如MAX_OVERFLOW和TOTAL。</p>
+<h2 id="继承的设计"><a href="#继承的设计" class="headerlink" title="继承的设计"></a>继承的设计</h2><p>设计类的时候，务必要确定类的方法和实例变量（统称为：“属性”）是否公开，如果有疑问，那就选择非公开，因为以后把其变成公开比把一个公开属性改成非公开要容易。</p>
+<p>public 属性是指你希望与你的类不相关的客户端使用的属性，您承诺不会做向后不兼容的更改。非公开属性是指不打算由第三方使用的属性;您不能保证非公共属性不会更改甚至不会被删除。</p>
+<p>在这里没有使用术语 “private”，因为 Python 中没有真正私有的属性（python 中没有通常不必要的工作）。</p>
+<p>另一类属性是属于“子类 API”的属性（通常在其他语言中称为 “protected”）。某些类被设计为基类，要么扩展，要么修改类的某些方面的行为。在设计这样的类的时候，要明确确定哪些属性是公开的，哪些属性是子类 API 的一部分，哪些属性是真正只在你的基类中使用。</p>
+<p>出于这种考虑，下面有一份 Python 特色的指南：</p>
 <ul>
 <li>公开属性应该没有前置下划线。</li>
 <li><p>如果公开属性名和保留关键字冲突，给属性名添加一个后置下划线。这比缩写或错误拼写更可取。（然而，尽管有这样的规定，对于任何类的变量或参数，特别是类方法的第一个参数，‘cls’是首选的拼写方式）</p>
 <pre><code>注1：参见上面对类方法的参数名的建议。
 </code></pre></li>
-<li><p>对于简单的公开数据属性，最好只暴露属性名，而不是使用复杂的访问器/修改器方法。记住，Python为未来增强提供了一条简单的途径，你应该发现简单的数据属性需要增加功能行为。在这种情况下，使用属性来隐藏简单数据属性访问语法后面的功能实现。</p>
+<li><p>对于简单的公开数据属性，最好只暴露属性名，而不是使用复杂的访问器/修改器(getter/setter)方法。记住，Python 为未来增强提供了一条简单的途径，你应该发现 python 中，使用简单的数据属性也可以增加需要的功能行为。在这种情况下，使用属性来隐藏简单数据属性访问语法后面的功能实现是最好的方法。</p>
 <pre><code>注1：属性仅工作于新风格的类。
 注2：尽量保持功能行为无副作用，尽管如缓存等副作用通常是好的。
 注3：计算开销较大的操作避免使用属性，属性表示法使调用者相信访问（相对）是廉价的。
 </code></pre></li>
-<li><p>如果确定你的类会被子类化，并有不希望子类使用的属性，考虑用两个前置下划线无后置下划线来命名它们。这将调用Python的名称修改算法，类名将被修改为属性名的一部分。当子类不无意间包括相同的属性名时，这有助于帮助避免属性名冲突。</p>
+<li><p>如果确定你的类会被子类化，并有不希望子类使用的属性，考虑用两个前置下划线无后置下划线来命名它们。这将调用Python的名称修改算法，类名将被添加为属性名的一部分。当子类不无意间包括相同的属性名时，这有助于帮助避免属性名冲突。</p>
 <pre><code>注1：注意如果修改名称仅用于简单类名，一个子类使用相同的类名和属性名，仍然会有名字冲突。
 注2：名称修改会带来一定的不便，如调试和 \_\_getattr\_\_()。然而，名称修改算法有良好的文档，也容易手工执行。
 注3：不是每个人都喜欢名称修改。尽量平衡避免意外的名称冲突和高级调用者的可能。
@@ -777,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#根本原则"><span class="nav-number">1.</span> <span class="nav-text">根本原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#描述性：命名风格"><span class="nav-number">2.</span> <span class="nav-text">描述性：命名风格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#规定性：命名约定"><span class="nav-number">3.</span> <span class="nav-text">规定性：命名约定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#避免采用的名字"><span class="nav-number">3.1.</span> <span class="nav-text">避免采用的名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ASCII兼容性"><span class="nav-number">3.2.</span> <span class="nav-text">ASCII兼容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包名和模块名"><span class="nav-number">3.3.</span> <span class="nav-text">包名和模块名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类名"><span class="nav-number">3.4.</span> <span class="nav-text">类名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型变量的名称"><span class="nav-number">3.5.</span> <span class="nav-text">类型变量的名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常名"><span class="nav-number">3.6.</span> <span class="nav-text">异常名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局变量名"><span class="nav-number">3.7.</span> <span class="nav-text">全局变量名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和变量名"><span class="nav-number">3.8.</span> <span class="nav-text">函数和变量名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和方法参数"><span class="nav-number">3.9.</span> <span class="nav-text">函数和方法参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法名和实例变量"><span class="nav-number">3.10.</span> <span class="nav-text">方法名和实例变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常量"><span class="nav-number">3.11.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承的设计"><span class="nav-number">3.12.</span> <span class="nav-text">继承的设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公共和内部接口"><span class="nav-number">3.13.</span> <span class="nav-text">公共和内部接口</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#根本原则"><span class="nav-number">1.</span> <span class="nav-text">根本原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#描述性：命名风格"><span class="nav-number">2.</span> <span class="nav-text">描述性：命名风格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#规定性：命名约定"><span class="nav-number">3.</span> <span class="nav-text">规定性：命名约定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#避免采用的名字"><span class="nav-number">3.1.</span> <span class="nav-text">避免采用的名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ASCII兼容性"><span class="nav-number">3.2.</span> <span class="nav-text">ASCII兼容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包名和模块名"><span class="nav-number">3.3.</span> <span class="nav-text">包名和模块名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类名"><span class="nav-number">3.4.</span> <span class="nav-text">类名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型变量的名称"><span class="nav-number">3.5.</span> <span class="nav-text">类型变量的名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常名"><span class="nav-number">3.6.</span> <span class="nav-text">异常名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局变量名"><span class="nav-number">3.7.</span> <span class="nav-text">全局变量名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和变量名"><span class="nav-number">3.8.</span> <span class="nav-text">函数和变量名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和方法参数"><span class="nav-number">3.9.</span> <span class="nav-text">函数和方法参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的方法名和实例变量"><span class="nav-number">3.10.</span> <span class="nav-text">类的方法名和实例变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常量"><span class="nav-number">3.11.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承的设计"><span class="nav-number">3.12.</span> <span class="nav-text">继承的设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公共和内部接口"><span class="nav-number">3.13.</span> <span class="nav-text">公共和内部接口</span></a></li></ol></li></ol></div>
             
 
           </div>
