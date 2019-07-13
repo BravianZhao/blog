@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="静水流深">
 <meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第8小节，其他小节可以通过下面链接阅读。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-13T14:21:55.038Z">
+<meta property="og:updated_time" content="2019-07-13T14:26:21.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python代码样式指南(8)-命名规范">
 <meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第8小节，其他小节可以通过下面链接阅读。">
@@ -519,11 +519,11 @@
 注3：不是每个人都喜欢名称修改。尽量平衡避免意外的名称冲突和高级调用者的可能。
 </code></pre></li>
 </ul>
-<h2 id="公共和内部接口"><a href="#公共和内部接口" class="headerlink" title="公共和内部接口"></a>公共和内部接口</h2><p>任何向后兼容性保证只适用于公共接口。因此，重要的是用户能够清楚地区分公开和内部接口。</p>
+<h2 id="公共和内部接口"><a href="#公共和内部接口" class="headerlink" title="公共和内部接口"></a>公共和内部接口</h2><p>任何向后兼容性保证，只适用于公共接口。因此，重要的是用户能够清楚地区分公开和内部接口。</p>
 <p>文档接口被认为是公开的，除非文档明确声明他们是临时接口或内部接口，免除通常的向后兼容保证。所有非文档化的接口应假定为内部接口。</p>
-<p>为了更好的支持自省，模块应该使用 __all__ 属性显示声明他们公开API的名字， __all__ 设置为一个空列表表示该模块没有公开API。<br>即使 __all__ 设置的适当，内部接口（包，模块，类，函数，属性或者其它名字）仍应以一个前置下划线作前缀。</p>
+<p>为了更好的支持自省，模块应该使用 __all__ 属性显示声明他们公开 API 的名字， __all__ 设置为一个空列表表示该模块没有公开 API。<br>即使 __all__ 设置的适当，<strong>内部接口（包，模块，类，函数，属性或者其它名字）仍应以一个前置下划线作前缀</strong>。</p>
 <p>如果一个接口包含任何命名空间（包，模块，或类）都是内部的，那么这个接口被认为是内部接口。</p>
-<p>导入名称也被认为是实现细节。其他模块不能依赖于对这些导入名称的间接访问，除非它们包含了模块的API的显式记录部分，例如 os.path 或从子模块公开功能的包的 __init__ 模块。</p>
+<p>导入名称也被认为是实现细节。其他模块不能依赖于对这些导入名称的间接访问，除非它们包含了模块的 API 的显式记录部分，例如 os.path 或从子模块公开功能的包的 __init__ 模块。</p>
 
       
     </div>
