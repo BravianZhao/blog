@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="静水流深">
 <meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第8小节，其他小节可以通过下面链接阅读。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-13T12:41:52.979Z">
+<meta property="og:updated_time" content="2019-07-13T12:44:14.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python代码样式指南(8)-命名规范">
 <meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第8小节，其他小节可以通过下面链接阅读。">
@@ -461,9 +461,9 @@
 <li><p>single_trailing_underscore_ 单后置下划线：按惯例使用避免与Python关键字冲突，例如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tkinter.Toplevel(master, class_=<span class="string">'ClassName'</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>__double_leading_underscore 双前置下划线：当命名类属性时，调用时的名称会被修改（类FooBar中，__boo 会变成 _FooBar__boo；见下文）。</p>
+<li><p>__double_leading_underscore 双前置下划线：强“内部使用”标志。当命名类属性时，调用时的名称会被修改（类FooBar中，__boo 会变成 _FooBar__boo；见下文）。</p>
 </li>
-<li><p>__double_leading_and_trailing_underscore__ 前置和后置都是双下划线：存在于用户控制的命名空间中的“魔法”的对象或属性。</p>
+<li><p>__double_leading_and_trailing_underscore__ 前后都是双下划线：存在于用户控制的命名空间中的“魔法”的对象或属性。</p>
 <p>例如：__init__，__import__ 或 __file__，除了在文档中使用他们，不要创造这样的名字。</p>
 </li>
 </ul>
