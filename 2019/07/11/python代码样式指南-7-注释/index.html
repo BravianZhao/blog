@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="静水流深">
 <meta property="og:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第7小节，其他小节可以通过下面链接阅读。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-12T12:03:48.863Z">
+<meta property="og:updated_time" content="2019-07-13T07:09:46.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python代码样式指南(7)-注释">
 <meta name="twitter:description" content="PEP: 8     Created: 2001-07-05   Post-History: 2001-07-05, 2013-08-01    PEP 8共有9个小节，本文是第7小节，其他小节可以通过下面链接阅读。">
@@ -435,6 +435,7 @@
 <p>非英语国家的Python程序员：请用英语书写注释，除非你120%的确定，所有看你代码的人都和你说一样的语言。</p>
 <h1 id="块注释"><a href="#块注释" class="headerlink" title="块注释"></a>块注释</h1><p>注释块通常适用于一些（或全部）紧跟其后的代码，并且与这些代码使用相同级别的缩进。注释块的每行以一个#和一个空格开始（除非是注释里面的文本有缩进）。</p>
 <p>注释块内的段落之间由仅包含#的行隔开。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Some platforms don't support lchmod().  Often the function exists</span></span><br><span class="line"><span class="comment"># anyway, as a stub that always returns ENOSUP or perhaps EOPNOTSUPP.</span></span><br><span class="line"><span class="comment"># (No, I don't know why that's a good design.)  ./configure will detect</span></span><br><span class="line"><span class="comment"># this and reject it--so HAVE_LCHMOD still won't be defined on such</span></span><br><span class="line"><span class="comment"># platforms.  This is Very Helpful.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># However, sometimes platforms without a working lchmod() *do* have</span></span><br><span class="line"><span class="comment"># fchmodat().  (Examples: Linux kernel 3.2 with glibc 2.15,</span></span><br><span class="line"><span class="comment"># OpenIndiana 3.x.)  And fchmodat() has a flag that theoretically makes</span></span><br><span class="line"><span class="comment"># it behave like lchmod().</span></span><br></pre></td></tr></table></figure>
 <h1 id="行内注释"><a href="#行内注释" class="headerlink" title="行内注释"></a>行内注释</h1><p>谨慎地使用行内注释。</p>
 <p>行内注释就是和代码在同一行上的注释，它与代码之间至少用两个空格隔开。并且它以#和一个空格开始。</p>
 <p>如果行内注释表达的意思显而易见，那么它就是不必要的。 </p>
