@@ -16,6 +16,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Python基础]]></title>
+    <url>%2F2019%2F09%2F10%2FPython%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[1.Python基础入门1.1计算机组成cpu 主要是用来进行运算和控制的 - 运算，主要是算术运算（+、-、*、\）、比较运算（&gt;、&lt;、=、&gt;=、&lt;=）和逻辑运算（与或非），cpu所有运算使用的数据都来自于cpu内部的存储器（也叫寄存器，它和内存差不多也是一种存储器，但是速度比内存高得多） - 控制，主要是对计算机其他部件进行控制，比如对显示器、喇叭进行控制 内存和硬盘 主要提供 cpu 运算和控制时所使用的数据 内存是一种高速存储器，但不能持久存储数据，断电数据就丢失 硬盘是一种低速存储器，可以持久存储数据 cpu 进行数据处理的时候，先判断内存里面是否有该数据，如果有直接读取处理，把处理结果存储在内存中；如果没有一般都是控制 dma 把数据存储到内存中，然后从内存中读取数据 1.2认识PythonPython 定义：Python 是一门计算机编程语言 Python 优点：简单易学、免费开源、应用广泛（自动化测试、自动化运维、web开发、爬虫、数据分析、机器学习） Python 基础学习路径：python入门 -&gt; 流程控制 -&gt; 数据序列 -&gt; 函数 -&gt; 文件操作 -&gt; 面向对象 -&gt; 模块包异常 1.3第一个Python程序python解释器的作用和分类 python 解释器是解释和执行 python 代码的程序 python 解释器有，CPython、IPython、PyPy、Jython、IronPython Python解释器的下载和安装 Pycharm的作用 下载和安装Pycharm Pycharm的基本使用：新建项目、写代码、运行代码 Pycharm的基本设置：外观的设置、解释器的设置、项目管理(新建、打开、关闭) 1.4注释注释的作用 注释的分类(单行、块注释、文档字符串) 1.5变量标识符关键字变量的作用和存储原理：存储数据的内存地址的名字 定义变量 使用变量 1.6输入和输出1.7数据类型转换1.8运算符2.流程控制3.数据序列4.函数5.文件操作6.面向对象7.模块包异常]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>基础语法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Pythonic代码n例]]></title>
     <url>%2F2019%2F07%2F16%2FPythonic%E4%BB%A3%E7%A0%81n%E4%BE%8B%2F</url>
     <content type="text"><![CDATA[1.两个变量交换123a = 1b = 2a, b = b, a python 的 packaging/unpackaging 机制 2.遍历容器类数据12for item in alist: do_sth_with(item) 和 java 里面的 for…each 类似 3.关闭资源12with open(path, "r") as f: do_sth_with(f) Python 里面的上下文管理器可以自动关闭资源 4.]]></content>

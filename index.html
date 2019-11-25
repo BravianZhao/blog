@@ -460,6 +460,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jihuawisdom.cn/2019/09/10/Python基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bravian Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水流深">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/10/Python基础/" itemprop="url">Python基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-10T00:16:49+08:00">
+                2019-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-Python基础入门"><a href="#1-Python基础入门" class="headerlink" title="1.Python基础入门"></a>1.Python基础入门</h1><h2 id="1-1计算机组成"><a href="#1-1计算机组成" class="headerlink" title="1.1计算机组成"></a>1.1计算机组成</h2><p>cpu 主要是用来进行运算和控制的</p>
+<pre><code>- 运算，主要是算术运算（+、-、*、\）、比较运算（&gt;、&lt;、=、&gt;=、&lt;=）和逻辑运算（与或非），cpu所有运算使用的数据都来自于cpu内部的存储器（也叫寄存器，它和内存差不多也是一种存储器，但是速度比内存高得多）
+- 控制，主要是对计算机其他部件进行控制，比如对显示器、喇叭进行控制
+</code></pre><p>内存和硬盘 主要提供 cpu 运算和控制时所使用的数据</p>
+<ul>
+<li>内存是一种高速存储器，但不能持久存储数据，断电数据就丢失</li>
+<li>硬盘是一种低速存储器，可以持久存储数据</li>
+<li>cpu 进行数据处理的时候，先判断内存里面是否有该数据，如果有直接读取处理，把处理结果存储在内存中；如果没有一般都是控制 dma 把数据存储到内存中，然后从内存中读取数据</li>
+</ul>
+<h2 id="1-2认识Python"><a href="#1-2认识Python" class="headerlink" title="1.2认识Python"></a>1.2认识Python</h2><p>Python 定义：Python 是一门计算机编程语言</p>
+<p>Python 优点：简单易学、免费开源、应用广泛（自动化测试、自动化运维、web开发、爬虫、数据分析、机器学习）</p>
+<p>Python 基础学习路径：python入门 -&gt; 流程控制 -&gt; 数据序列 -&gt; 函数 -&gt; 文件操作 -&gt; 面向对象 -&gt; 模块包异常</p>
+<h2 id="1-3第一个Python程序"><a href="#1-3第一个Python程序" class="headerlink" title="1.3第一个Python程序"></a>1.3第一个Python程序</h2><p>python解释器的作用和分类</p>
+<ul>
+<li>python 解释器是解释和执行 python 代码的程序</li>
+<li>python 解释器有，CPython、IPython、PyPy、Jython、IronPython</li>
+</ul>
+<p>Python解释器的下载和安装</p>
+<p>Pycharm的作用</p>
+<p>下载和安装Pycharm</p>
+<p>Pycharm的基本使用：新建项目、写代码、运行代码</p>
+<p>Pycharm的基本设置：外观的设置、解释器的设置、项目管理(新建、打开、关闭)</p>
+<h2 id="1-4注释"><a href="#1-4注释" class="headerlink" title="1.4注释"></a>1.4注释</h2><p>注释的作用</p>
+<p>注释的分类(单行、块注释、文档字符串)</p>
+<h2 id="1-5变量标识符关键字"><a href="#1-5变量标识符关键字" class="headerlink" title="1.5变量标识符关键字"></a>1.5变量标识符关键字</h2><p>变量的作用和存储原理：存储数据的内存地址的名字</p>
+<p>定义变量</p>
+<p>使用变量</p>
+<h2 id="1-6输入和输出"><a href="#1-6输入和输出" class="headerlink" title="1.6输入和输出"></a>1.6输入和输出</h2><h2 id="1-7数据类型转换"><a href="#1-7数据类型转换" class="headerlink" title="1.7数据类型转换"></a>1.7数据类型转换</h2><h2 id="1-8运算符"><a href="#1-8运算符" class="headerlink" title="1.8运算符"></a>1.8运算符</h2><h1 id="2-流程控制"><a href="#2-流程控制" class="headerlink" title="2.流程控制"></a>2.流程控制</h1><h1 id="3-数据序列"><a href="#3-数据序列" class="headerlink" title="3.数据序列"></a>3.数据序列</h1><h1 id="4-函数"><a href="#4-函数" class="headerlink" title="4.函数"></a>4.函数</h1><h1 id="5-文件操作"><a href="#5-文件操作" class="headerlink" title="5.文件操作"></a>5.文件操作</h1><h1 id="6-面向对象"><a href="#6-面向对象" class="headerlink" title="6.面向对象"></a>6.面向对象</h1><h1 id="7-模块包异常"><a href="#7-模块包异常" class="headerlink" title="7.模块包异常"></a>7.模块包异常</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://jihuawisdom.cn/2019/07/16/Pythonic代码n例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1752,182 +1920,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jihuawisdom.cn/2019/07/11/python代码样式指南-1-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bravian Zhao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水流深">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/11/python代码样式指南-1-2/" itemprop="url">python代码样式指南(1)(2)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T21:44:29+08:00">
-                2019-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <table>
-<thead>
-<tr>
-<th style="text-align:left">PEP:</th>
-<th>8</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Created:</td>
-<td>2001-07-05</td>
-</tr>
-<tr>
-<td style="text-align:left">Post-History:</td>
-<td>2001-07-05, 2013-08-01</td>
-</tr>
-</tbody>
-</table>
-<p>PEP 8共有9个小节，本文是第1、2小节。</p>
-<p>1.介绍</p>
-<p>2.本指南不适用的情况</p>
-<p><a href="/2019/07/11/python代码样式指南-3-代码布局/">3.代码布局</a></p>
-<p>4.<a href="/2019/07/11/python代码样式指南-4-字符串引号/">字符串引号</a></p>
-<p>5.<a href="/2019/07/11/python代码样式指南-5-表达式和语句中的空格/">表达式和语句中的空格</a></p>
-<p>6.<a href="/2019/07/11/python代码样式指南-6-什么时候使用尾部逗号/">什么时候使用尾部逗号</a></p>
-<p>7.<a href="/2019/07/11/python代码样式指南-7-注释/">注释</a></p>
-<p>8.<a href="/2019/07/11/python代码样式指南-8-命名规范/">命名规范</a></p>
-<p>9.<a href="/2019/07/11/python代码样式指南-9-程序设计建议/">程序设计建议</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/11/python代码样式指南-1-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1975,7 +1974,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1997,7 +1996,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
