@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jihuawisdom.cn/"/>
-  <updated>2019-07-11T15:33:29.196Z</updated>
+  <updated>2019-11-25T03:17:14.256Z</updated>
   <id>http://jihuawisdom.cn/</id>
   
   <author>
@@ -15,6 +15,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>wsgi协议简单说明</title>
+    <link href="http://jihuawisdom.cn/2019/11/25/wsgi%E5%8D%8F%E8%AE%AE%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E/"/>
+    <id>http://jihuawisdom.cn/2019/11/25/wsgi协议简单说明/</id>
+    <published>2019-11-24T17:00:20.000Z</published>
+    <updated>2019-11-25T03:17:14.256Z</updated>
+    
+    <content type="html"><![CDATA[<p>在使用 python web 服务器动态产生 html 页面的时候，产生了 WSGI 协议，全称 Web Server Gateway Interface。 </p><p>WSGI 协议规定了Python Web 服务器和 Web应用通过什么方式相互调用的接口。</p><p>WSGI 接口定义非常简单，它只要求 Web应用实现一个函数，用来响应HTTP请求。</p><p>比如下面这个 Web 版本的“Hello, web!”：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">application</span><span class="params">(environ, start_response)</span>:</span></span><br><span class="line">    start_response(<span class="string">'200 OK'</span>, [(<span class="string">'Content-Type'</span>, <span class="string">'text/html'</span>)])</span><br><span class="line">    <span class="keyword">return</span> [<span class="string">b'&lt;h1&gt;Hello, web!&lt;/h1&gt;'</span>]</span><br></pre></td></tr></table></figure><ol><li>函数有两个参数，environ 里面保存的是 http 请求的相关信息，start_response 是一个回调函数，用来设置 http 响应的响应头</li><li>函数的返回值是 http 的响应体</li></ol><p>有了 WSGI 协议，Python Web 服务器专门负责，接收 http 请求、解析 http 请求、拼接 http 响应，返回 http 响应，Python Web 应用只需要负责动态产生 http 响应的内容。</p><p>有了 WSGI 应用还需要 WSGI 服务器，Python 语言包已经提供了一个 WSGI 服务器的简单实现，用于测试和参考，这个 WSGI 服务器实现包叫做 wsgiref，使用方法如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> wsgiref.simple_server <span class="keyword">import</span> make_server</span><br><span class="line"><span class="comment"># 导入我们自己编写的web应用application函数</span></span><br><span class="line"><span class="keyword">from</span> hello <span class="keyword">import</span> application</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个服务器，IP地址为空，端口是8000，web 应用处理函数是application</span></span><br><span class="line">httpd = make_server(<span class="string">''</span>, <span class="number">8000</span>, application)</span><br><span class="line"><span class="comment"># 开始监听HTTP请求</span></span><br><span class="line">httpd.serve_forever()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在使用 python web 服务器动态产生 html 页面的时候，产生了 WSGI 协议，全称 Web Server Gateway Interface。 &lt;/p&gt;
+&lt;p&gt;WSGI 协议规定了Python Web 服务器和 Web应用通过什么方式相互调用的接口。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
+    
+    
+      <category term="wsgi" scheme="http://jihuawisdom.cn/tags/wsgi/"/>
+    
+      <category term="web" scheme="http://jihuawisdom.cn/tags/web/"/>
+    
+      <category term="webserver" scheme="http://jihuawisdom.cn/tags/webserver/"/>
+    
+      <category term="web框架" scheme="http://jihuawisdom.cn/tags/web%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="django" scheme="http://jihuawisdom.cn/tags/django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pythonic代码n例</title>
+    <link href="http://jihuawisdom.cn/2019/07/16/Pythonic%E4%BB%A3%E7%A0%81n%E4%BE%8B/"/>
+    <id>http://jihuawisdom.cn/2019/07/16/Pythonic代码n例/</id>
+    <published>2019-07-16T13:50:40.000Z</published>
+    <updated>2019-07-16T14:00:00.580Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-两个变量交换"><a href="#1-两个变量交换" class="headerlink" title="1.两个变量交换"></a>1.两个变量交换</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">a, b = b, a</span><br></pre></td></tr></table></figure><p>python 的 packaging/unpackaging 机制</p><h1 id="2-遍历容器类数据"><a href="#2-遍历容器类数据" class="headerlink" title="2.遍历容器类数据"></a>2.遍历容器类数据</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> alist:</span><br><span class="line">  do_sth_with(item)</span><br></pre></td></tr></table></figure><p>和 java 里面的 for…each 类似</p><h1 id="3-关闭资源"><a href="#3-关闭资源" class="headerlink" title="3.关闭资源"></a>3.关闭资源</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(path, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">  do_sth_with(f)</span><br></pre></td></tr></table></figure><p>Python 里面的上下文管理器可以自动关闭资源</p><p>4.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;1-两个变量交换&quot;&gt;&lt;a href=&quot;#1-两个变量交换&quot; class=&quot;headerlink&quot; title=&quot;1.两个变量交换&quot;&gt;&lt;/a&gt;1.两个变量交换&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
+    
+    
+      <category term="Pythonic" scheme="http://jihuawisdom.cn/tags/Pythonic/"/>
+    
+      <category term="Python特有语法" scheme="http://jihuawisdom.cn/tags/Python%E7%89%B9%E6%9C%89%E8%AF%AD%E6%B3%95/"/>
+    
+      <category term="Python特色" scheme="http://jihuawisdom.cn/tags/Python%E7%89%B9%E8%89%B2/"/>
+    
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
+  </entry>
   
   <entry>
     <title>python代码样式指南(9)-程序设计建议</title>
@@ -61,11 +127,11 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
       <category term="类型注释" scheme="http://jihuawisdom.cn/tags/%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A/"/>
     
@@ -107,13 +173,13 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="命名规范" scheme="http://jihuawisdom.cn/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
       <category term="类名" scheme="http://jihuawisdom.cn/tags/%E7%B1%BB%E5%90%8D/"/>
     
@@ -159,13 +225,13 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="注释" scheme="http://jihuawisdom.cn/tags/%E6%B3%A8%E9%87%8A/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
   </entry>
   
@@ -205,11 +271,11 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
       <category term="逗号" scheme="http://jihuawisdom.cn/tags/%E9%80%97%E5%8F%B7/"/>
     
@@ -253,13 +319,13 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="空格" scheme="http://jihuawisdom.cn/tags/%E7%A9%BA%E6%A0%BC/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
   </entry>
   
@@ -299,11 +365,11 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
       <category term="字符串引号" scheme="http://jihuawisdom.cn/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%95%E5%8F%B7/"/>
     
@@ -345,6 +411,8 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="缩进" scheme="http://jihuawisdom.cn/tags/%E7%BC%A9%E8%BF%9B/"/>
@@ -354,8 +422,6 @@
       <category term="空格" scheme="http://jihuawisdom.cn/tags/%E7%A9%BA%E6%A0%BC/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
       <category term="换行" scheme="http://jihuawisdom.cn/tags/%E6%8D%A2%E8%A1%8C/"/>
     
@@ -410,6 +476,8 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="缩进" scheme="http://jihuawisdom.cn/tags/%E7%BC%A9%E8%BF%9B/"/>
@@ -425,8 +493,6 @@
       <category term="命名规范" scheme="http://jihuawisdom.cn/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
   </entry>
   

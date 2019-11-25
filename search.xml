@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[wsgi协议简单说明]]></title>
+    <url>%2F2019%2F11%2F25%2Fwsgi%E5%8D%8F%E8%AE%AE%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%2F</url>
+    <content type="text"><![CDATA[在使用 python web 服务器动态产生 html 页面的时候，产生了 WSGI 协议，全称 Web Server Gateway Interface。 WSGI 协议规定了Python Web 服务器和 Web应用通过什么方式相互调用的接口。 WSGI 接口定义非常简单，它只要求 Web应用实现一个函数，用来响应HTTP请求。 比如下面这个 Web 版本的“Hello, web!”： 123def application(environ, start_response): start_response('200 OK', [('Content-Type', 'text/html')]) return [b'&lt;h1&gt;Hello, web!&lt;/h1&gt;'] 函数有两个参数，environ 里面保存的是 http 请求的相关信息，start_response 是一个回调函数，用来设置 http 响应的响应头 函数的返回值是 http 的响应体 有了 WSGI 协议，Python Web 服务器专门负责，接收 http 请求、解析 http 请求、拼接 http 响应，返回 http 响应，Python Web 应用只需要负责动态产生 http 响应的内容。 有了 WSGI 应用还需要 WSGI 服务器，Python 语言包已经提供了一个 WSGI 服务器的简单实现，用于测试和参考，这个 WSGI 服务器实现包叫做 wsgiref，使用方法如下： 123456789from wsgiref.simple_server import make_server# 导入我们自己编写的web应用application函数from hello import application# 创建一个服务器，IP地址为空，端口是8000，web 应用处理函数是applicationhttpd = make_server('', 8000, application)# 开始监听HTTP请求httpd.serve_forever()]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>wsgi</tag>
+        <tag>web</tag>
+        <tag>webserver</tag>
+        <tag>web框架</tag>
+        <tag>django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pythonic代码n例]]></title>
+    <url>%2F2019%2F07%2F16%2FPythonic%E4%BB%A3%E7%A0%81n%E4%BE%8B%2F</url>
+    <content type="text"><![CDATA[1.两个变量交换123a = 1b = 2a, b = b, a python 的 packaging/unpackaging 机制 2.遍历容器类数据12for item in alist: do_sth_with(item) 和 java 里面的 for…each 类似 3.关闭资源12with open(path, "r") as f: do_sth_with(f) Python 里面的上下文管理器可以自动关闭资源 4.]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>Pythonic</tag>
+        <tag>Python特有语法</tag>
+        <tag>Python特色</tag>
+        <tag>代码风格</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python代码样式指南(9)-程序设计建议]]></title>
     <url>%2F2019%2F07%2F11%2Fpython%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F%E6%8C%87%E5%8D%97-9-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE%2F</url>
     <content type="text"><![CDATA[PEP: 8 Created: 2001-07-05 Post-History: 2001-07-05, 2013-08-01 PEP 8共有9个小节，本文是第9小节，其他小节可以通过下面链接阅读。 1.介绍 2.本指南不适用的情况 3.代码布局 4.字符串引号 5.表达式和语句中的空格 6.什么时候使用尾部逗号 7.注释 8.命名规范 9.程序设计建议 程序设计建议 代码应该以不影响Python的其他实现（PyPy，Jython，IronPython，Cython，Psyco等）的方式编写。 例如，不要依赖CPython为字符串连接 a + = b 或 a = a + b 形式的语句的高效实现。即使在CPython中，这种优化也很脆弱（它只适用于某些类型），并且在不使用引用计数的实现中根本不存在。在库的性能敏感部分，应该使用’.join（）形式。这将确保在各种实现中以线性时间进行连接。 像None这样的单例的比较应该总是使用 is 或者 is not，而不是相等的运算符。 另外，当你想要表达 if x is not None时，要避免写为if x ，因为在测试默认为None的变量或参数是否设置为其他值时，另一个值可能也具有在布尔上下文中为 false 的类型（例如容器）。 使用is not操作符而不是not...is...。虽然这两个表达式的功能相同，前者具有更好的可读性并且更受喜欢。 12345# 推荐写法if foo is not None:# 不推荐写法if not foo is None: 在使用丰富的比较实现排序操作时，最好实现所有六个操作 (__ne__，__lt__，__le__，__gt__，__ge__）而不是依靠其它代码只能进行一个特定的比较。 为了减少所涉及的工作量，functools.total_ordering()装饰器提供了一个工具来生成缺失的比较函数。 PEP 207表明，Python假定自反性规则。因此，编译器可以交换y &gt; x和x &lt; y，y &gt;= x和x &lt;= y，也可以交换参数x == y和x != y。sort() 和min() )操作保证使用 &lt; 运算符，而max() 函数使用 &gt; 运算符。不管怎样，最好实现所有六个操作，避免在其它情况下产生混淆。 使用def语句，而不是使用赋值语句将lambda表达式绑定到标识符上。 12345# 推荐写法def f(x): return 2*x# 不推荐写法f = lambda x: 2*x 第一种形式意味着所得的函数对象的名称是‘f’而不是一般的‘’。这在回溯和字符串表示中更有用。赋值语句的使用消除了lambda表达式可以提供显示def声明的唯一好处（例如它可以嵌在更大的表达式里面）。 从Exception而不是BaseException中派生出异常。直接继承BaseException是保留给那些捕捉几乎总是错的异常的。 基于可能需要捕获异常的代码的区别，来设计异常层次结构，而不是引发异常的位置。旨在以编程方式回答“出了什么问题？”的问题，而不是只说“问题产生了”（有关内置异常层次结构的本课程示例，请参阅PEP 3151） 类的命名规则适用于此，只是当异常确实是错误的时候，需要在异常类名添加“Error”后缀。非本地的流控制或其他形式的信号使用非错误的异常，不需要特殊的后缀。 适当使用异常链。Python3中，“raise X from Y”用来表明明确的更换而不失去原来追踪到的信息。 当故意替换一个内部异常（Python 2中使用“raise X”而Python 3.3+中使用“raise X from None”），确保相关的细节被转移到新的异常中（比如当转换KeyError为AttributeError时保留属性名，或在新的异常消息中嵌入原始异常的文本）。 Python 3中产生异常，使用raise ValueError(‘message’)替换python 2中的形式raise ValueError,’message’。 后一种形式是不合法的Python 3语法。 多亏了使用小括号的形式，当异常的参数很长或包含格式化字符传时，不必再使用续行符。 捕获异常时，尽可能提及特定的异常，而不是使用空的except：子句。例如，使用： 1234try: import platform_specific_moduleexcept ImportError: platform_specific_module = None 空的except：子句将捕获SystemExit和KeyboardInterrupt异常，这使得很难用Control-C来中断程序，也会掩饰其它的问题。如果想捕获会导致程序错误的所有异常，使用except Exception:（空异常相当于except BaseException:） 一条好的经验法则是将使用空‘except’子句限制为下面两种情况： 如果异常处理程序将打印出来或记录日志跟踪；至少用户能够意识到有错误发生。 如果代码需要做一些清理工作，但是随后让异常用 raise 抛出。处理这种情况用 try…finally 更好。 当用一个名字绑定捕获异常时，更喜欢Python2.6中添加的明确的名称绑定语法。 1234try: process_data()except Exception as exc: raise DataProcessingFailedError(str(exc)) 这是Python3中唯一支持的语法，可以避免旧的基于逗号的语法的歧义问题。 捕获操作系统错误时，我更喜欢 Python 3.3 中引入的显式异常层次结构，而不是内省errno值。 此外，对于所有try / except子句，将try子句限制为所需的绝对最小代码量。同样，这可以避免掩盖错误。 123456789101112131415# 推荐的做法try: value = collection[key]except KeyError: return key_not_found(key)else: return handle_value(value)# 不推荐的做法try: # Too broad! return handle_value(collection[key])except KeyError: # Will also catch KeyError raised by handle_value() return key_not_found(key) 当资源是特定代码段的本地资源时，请使用with语句以确保在使用后立即可靠地清除它。 try / finally语句也是可以接受的。 当除了获取和释放资源之外，还需要做其他一些事情的时候，应该通过单独的函数或方法调用上下文管理器。例如： 1234567# 推荐的做法with conn.begin_transaction(): do_stuff_in_transaction(conn)# 不推荐的做法with conn: do_stuff_in_transaction(conn) 后者的例子没有提供任何信息表明 __enter__ 和 __exit__ 方法做了除了事务结束后关闭连接以外的其他什么事情。 在这种情况下，显式表达是很重要的。 返回语句保持一致。函数中的所有返回语句都有返回值，或都没有返回值。如果任意一个返回语句有返回值，那么任意没有返回值的返回语句应该明确指出return None，并且应该有显示的返回语句放在函数结尾（如果可以）。 123456789101112131415161718192021# 推荐的做法def foo(x): if x &gt;= 0: return math.sqrt(x) else: return Nonedef bar(x): if x &lt; 0: return None return math.sqrt(x)# 不推荐的做法def foo(x): if x &gt;= 0: return math.sqrt(x)def bar(x): if x &lt; 0: return return math.sqrt(x) 使用字符串方法代替string模块。 字符串方法总是更快并且与unicode字符串使用相同的API。如果必须向后兼容Python2.0以前的版本，可以无视这个原则。 使用&#39;&#39;.startswith()和&#39;&#39;.endswith()代替字符串切片来检查前缀和后缀。 startswith()和endswith()更清晰，更不容易出错。例如： 12Yes: if foo.startswith('bar'):No: if foo[:3] == 'bar': 对象类型的比较使用isinstance()代替直接比较类型。 12Yes: if isinstance(obj, int):No: if type(obj) is type(1): 当检查一个对象是否是字符串时，牢记它也可能是一个 unicode 字符串！Python 2中，str和unicode有共同的基类 basestring，所以你可以这么做： 1if isinstance(obj, basestring): 注意，Python3 中， unicode 和 basestring 不再存在（只有str），并且bytes对象不再是 string（而是一个integers序列） 对于序列（字符串，列表，元组），要充分利用空序列就是 false 的情况。 12345Yes: if not seq: if seq:No: if len(seq): if not len(seq): 不要书写依赖后置空格的字符串。这些后置空格在视觉上无法区分，并且有些编辑器（或最近 reindent.py）将去掉他们。 不要用 == 将布尔值与True或False进行比较。 123Yes: if greeting:No: if greeting == True:Worse: if greeting is True: 函数注释随着PEP 484的发布，函数注释的样式规则也发生了如下的变化： 为了向前兼容，Python 3代码中的函数注释应该优选使用PEP 484语法。 （上一节中有一些注释的格式的建议。） 不再鼓励使用先前在本PEP中推荐的注释样式。 但是，除stdlib外，现在鼓励在PEP 484规则内进行实践。例如，使用PEP 484样式类型的注释标记大型第三方库或应用程序，查看添加这些注释的容易程度，并观察它们的存在是否增加了代码可理解性。 Python标准库应该保守采用这样的注释，除非用于它们的新代码和大型重构。 对于想要使用不同的函数注释的代码，建议在PEP检查表单中对类型检查进行如下注释。 1# type: ignore 靠近文件顶部；这告诉类型检查器忽略所有注释。 （在PEP 484中可以找到更细粒度的禁用类型检查器的方法。） 像 linters、类型检查器都是可选的、单独的工具。默认情况下，Python解释器不应由于类型检查而发出任何消息，并且不应基于注释更改其行为。 不想使用类型检查器的用户可以自由地忽略它们。但是，一般第三方库包的用户可能希望在这些包上运行类型检查程序。为此，PEP 484建议使用存根文件：.pyi文件，检查类型的时候，类型检查程序读取 .pyi文件，而不是相应的.py文件。存根文件可以与库一起分发，也可以通过类型化仓库（与库作者的许可）单独分发。 对于需要向后兼容的代码，可以以注释的形式添加类型注释。参见PEP 484 [6]的相关章节 变量注释PEP 526引入了变量注释。它们的样式建议类似于上面描述的功能注释。 模块级变量，类和实例变量以及局部变量的注释在冒号后应该有一个空格（特质类型提示中的类型注释） 冒号前应该没有空格 如果变量右侧有赋值，在等号两侧应该各有一个空格 12345678910111213# 推荐的做法code: intclass Point: coords: Tuple[int, int] label: str = '&lt;unknown&gt;'# 不推荐的做法code:int # No space after coloncode : int # Space before colonclass Test: result: int=0 # No spaces around equality sign 尽管PEP 526 从 Python 3.6 开始被接受，但变量注释语法是所有 Python 版本的存根文件的首选语法（有关详细信息，请参阅PEP 484）]]></content>
@@ -8,9 +37,9 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>代码风格</tag>
         <tag>pep8</tag>
         <tag>代码样式</tag>
-        <tag>代码风格</tag>
         <tag>类型注释</tag>
       </tags>
   </entry>
@@ -22,10 +51,10 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>代码风格</tag>
         <tag>pep8</tag>
         <tag>命名规范</tag>
         <tag>代码样式</tag>
-        <tag>代码风格</tag>
         <tag>类名</tag>
         <tag>变量名</tag>
         <tag>函数名</tag>
@@ -39,10 +68,10 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>代码风格</tag>
         <tag>pep8</tag>
         <tag>注释</tag>
         <tag>代码样式</tag>
-        <tag>代码风格</tag>
       </tags>
   </entry>
   <entry>
@@ -53,9 +82,9 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>代码风格</tag>
         <tag>pep8</tag>
         <tag>代码样式</tag>
-        <tag>代码风格</tag>
         <tag>逗号</tag>
         <tag>尾部逗号</tag>
       </tags>
@@ -68,10 +97,10 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>代码风格</tag>
         <tag>pep8</tag>
         <tag>空格</tag>
         <tag>代码样式</tag>
-        <tag>代码风格</tag>
       </tags>
   </entry>
   <entry>
@@ -82,9 +111,9 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>代码风格</tag>
         <tag>pep8</tag>
         <tag>代码样式</tag>
-        <tag>代码风格</tag>
         <tag>字符串引号</tag>
       </tags>
   </entry>
@@ -96,12 +125,12 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>代码风格</tag>
         <tag>pep8</tag>
         <tag>缩进</tag>
         <tag>导入</tag>
         <tag>空格</tag>
         <tag>代码样式</tag>
-        <tag>代码风格</tag>
         <tag>换行</tag>
         <tag>文件编码</tag>
         <tag>代码布局</tag>
@@ -115,6 +144,7 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>代码风格</tag>
         <tag>pep8</tag>
         <tag>缩进</tag>
         <tag>空行</tag>
@@ -123,7 +153,6 @@
         <tag>注释</tag>
         <tag>命名规范</tag>
         <tag>代码样式</tag>
-        <tag>代码风格</tag>
       </tags>
   </entry>
 </search>
