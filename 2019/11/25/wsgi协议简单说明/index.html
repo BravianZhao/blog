@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="WSGI 协议产生背景在使用 python web 服务器动态产生大量 html 页面的时候，产生了把接收 http 请求、返回 http 响应和产生 HTML 页面的逻辑分开的需要。 通常把接收 http 请求、返回 http 响应 这部分逻辑叫 Web 服务器，动态产生 HTML 页面的逻辑叫 Web 应用。这就产生了 WSGI 接口协议，全称 Web Server Gateway Inter">
+<meta name="description" content="WSGI 协议产生背景在使用 python web 服务器动态产生大量 html 页面的时候，其中使用 tcp sokect 接收 http 请求、返回 http 响应和解析 http 请求是不变的，而产生不同的 HTML 的逻辑一般不同，所以有了把接收 http 请求、解析 http 请求、返回 http 响应和产生 HTML 页面的逻辑分开的需要。 通常把接收 http 请求、解析 http">
 <meta name="keywords" content="wsgi,web,webserver,web框架,django">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wsgi协议简单说明">
 <meta property="og:url" content="http://jihuawisdom.cn/2019/11/25/wsgi协议简单说明/index.html">
 <meta property="og:site_name" content="静水流深">
-<meta property="og:description" content="WSGI 协议产生背景在使用 python web 服务器动态产生大量 html 页面的时候，产生了把接收 http 请求、返回 http 响应和产生 HTML 页面的逻辑分开的需要。 通常把接收 http 请求、返回 http 响应 这部分逻辑叫 Web 服务器，动态产生 HTML 页面的逻辑叫 Web 应用。这就产生了 WSGI 接口协议，全称 Web Server Gateway Inter">
+<meta property="og:description" content="WSGI 协议产生背景在使用 python web 服务器动态产生大量 html 页面的时候，其中使用 tcp sokect 接收 http 请求、返回 http 响应和解析 http 请求是不变的，而产生不同的 HTML 的逻辑一般不同，所以有了把接收 http 请求、解析 http 请求、返回 http 响应和产生 HTML 页面的逻辑分开的需要。 通常把接收 http 请求、解析 http">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://jihuawisdom.cn/2019/11/25/wsgi协议简单说明/Django框架中的WSGI.png">
-<meta property="og:updated_time" content="2019-11-25T09:31:13.168Z">
+<meta property="og:updated_time" content="2019-11-26T09:23:12.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wsgi协议简单说明">
-<meta name="twitter:description" content="WSGI 协议产生背景在使用 python web 服务器动态产生大量 html 页面的时候，产生了把接收 http 请求、返回 http 响应和产生 HTML 页面的逻辑分开的需要。 通常把接收 http 请求、返回 http 响应 这部分逻辑叫 Web 服务器，动态产生 HTML 页面的逻辑叫 Web 应用。这就产生了 WSGI 接口协议，全称 Web Server Gateway Inter">
+<meta name="twitter:description" content="WSGI 协议产生背景在使用 python web 服务器动态产生大量 html 页面的时候，其中使用 tcp sokect 接收 http 请求、返回 http 响应和解析 http 请求是不变的，而产生不同的 HTML 的逻辑一般不同，所以有了把接收 http 请求、解析 http 请求、返回 http 响应和产生 HTML 页面的逻辑分开的需要。 通常把接收 http 请求、解析 http">
 <meta name="twitter:image" content="http://jihuawisdom.cn/2019/11/25/wsgi协议简单说明/Django框架中的WSGI.png">
 
 
@@ -400,7 +400,7 @@
       
 
       
-        <h1 id="WSGI-协议产生背景"><a href="#WSGI-协议产生背景" class="headerlink" title="WSGI 协议产生背景"></a>WSGI 协议产生背景</h1><p>在使用 python web 服务器动态产生大量 html 页面的时候，产生了把接收 http 请求、返回 http 响应和产生 HTML 页面的逻辑分开的需要。 通常把接收 http 请求、返回 http 响应 这部分逻辑叫 Web 服务器，动态产生 HTML 页面的逻辑叫 Web 应用。这就产生了 WSGI 接口协议，全称 Web Server Gateway Interface，WSGI 协议规定了Python Web 服务器和 Web应用之间通过什么方式相互调用。</p>
+        <h1 id="WSGI-协议产生背景"><a href="#WSGI-协议产生背景" class="headerlink" title="WSGI 协议产生背景"></a>WSGI 协议产生背景</h1><p>在使用 python web 服务器动态产生大量 html 页面的时候，其中使用 tcp sokect 接收 http 请求、返回 http 响应和解析 http 请求是不变的，而产生不同的 HTML 的逻辑一般不同，所以有了把接收 http 请求、解析 http 请求、返回 http 响应和产生 HTML 页面的逻辑分开的需要。 通常把接收 http 请求、解析 http 请求、返回 http 响应 这部分逻辑叫 Web 服务器，动态产生 HTML 页面的逻辑叫 Web 应用。Web 服务器需要调用 Web 应用，这就产生了 WSGI 接口协议，全称 Web Server Gateway Interface，<strong>WSGI 协议规定了Python Web 服务器和 Web应用之间通过什么方式相互调用</strong>。</p>
 <a id="more"></a>
 <h1 id="WSGI-协议规范和案例"><a href="#WSGI-协议规范和案例" class="headerlink" title="WSGI 协议规范和案例"></a>WSGI 协议规范和案例</h1><h2 id="WSGI-应用"><a href="#WSGI-应用" class="headerlink" title="WSGI 应用"></a>WSGI 应用</h2><p>WSGI 接口定义非常简单，它只要求 Web应用实现一个产生 HTML 页面数据的函数。</p>
 <p>比如下面这个 Web 版本的 “Hello, web!”：</p>
