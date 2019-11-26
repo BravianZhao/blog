@@ -401,6 +401,7 @@
       
         
           <h1 id="WSGI-协议产生背景"><a href="#WSGI-协议产生背景" class="headerlink" title="WSGI 协议产生背景"></a>WSGI 协议产生背景</h1><p>在使用 python web 服务器动态产生大量 html 页面的时候，其中使用 tcp sokect 接收 http 请求、返回 http 响应和解析 http 请求是不变的，而产生不同的 HTML 的逻辑一般不同，所以有了把接收 http 请求、解析 http 请求、返回 http 响应和产生 HTML 页面的逻辑分开的需要。 通常把接收 http 请求、解析 http 请求、返回 http 响应 这部分逻辑叫 Web 服务器，动态产生 HTML 页面的逻辑叫 Web 应用。Web 服务器需要调用 Web 应用，这就产生了 WSGI 接口协议，全称 Web Server Gateway Interface，<strong>WSGI 协议规定了Python Web 服务器和 Web应用之间通过什么方式相互调用</strong>。</p>
+<h1 id="WSGI-协议规范和案例"><a href="#WSGI-协议规范和案例" class="headerlink" title="WSGI 协议规范和案例"></a>WSGI 协议规范和案例</h1>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/11/25/wsgi协议简单说明/#more" rel="contents">
