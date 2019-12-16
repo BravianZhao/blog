@@ -84,9 +84,9 @@
     <link href="http://jihuawisdom.cn/2019/07/16/Pythonic%E4%BB%A3%E7%A0%81n%E4%BE%8B/"/>
     <id>http://jihuawisdom.cn/2019/07/16/Pythonic代码n例/</id>
     <published>2019-07-16T13:50:40.000Z</published>
-    <updated>2019-12-16T02:28:24.184Z</updated>
+    <updated>2019-12-16T02:31:08.019Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="1-两个变量交换"><a href="#1-两个变量交换" class="headerlink" title="1.两个变量交换"></a>1.两个变量交换</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">a, b = b, a</span><br></pre></td></tr></table></figure><p>python 的 packaging/unpackaging 机制</p><h1 id="2-遍历容器类数据"><a href="#2-遍历容器类数据" class="headerlink" title="2.遍历容器类数据"></a>2.遍历容器类数据</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> alist:</span><br><span class="line">  do_sth_with(item)</span><br></pre></td></tr></table></figure><p>和 java 里面的 for…each 类似</p><a id="more"></a><h1 id="3-关闭资源"><a href="#3-关闭资源" class="headerlink" title="3.关闭资源"></a>3.关闭资源</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(path, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">  do_sth_with(f)</span><br></pre></td></tr></table></figure><p>Python 里面的上下文管理器可以自动关闭资源</p><h1 id="4-运算符"><a href="#4-运算符" class="headerlink" title="4.* 运算符"></a>4.* 运算符</h1><ul><li>* 作为算术运算中的乘法使用，2 * 3，表示 2 乘以 3</li><li><strong> 作为算术运算中的幂运算使用，3 </strong> 2，表示 3 的 2 次方</li><li>* 作为列表/元组结构中的打包和解包使用 <ul><li>在函数调用的时候，解包列表/元组参数为位置参数</li><li>在函数定义的时候，打包位置参数为元组</li></ul></li><li>** 作为字典结构中的打包和解包使用 <ul><li>在函数调用的时候，解包字典参数为关键字参数</li><li>在函数定义的时候，打包关键字参数为字典</li></ul></li></ul><p>1、在函数调用的时候，解包列表/元组参数为位置参数</p><p>在函数调用的时候，如果需要从列表中取出所有元素，作为位置参数传入函数，那么可以直接使用 * 解包列表为位置参数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(p1, p2, p3)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> p1 + p2 + p3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ilist = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">add(ilist[<span class="number">0</span>], ilist[<span class="number">1</span>], ilist[<span class="number">2</span>])</span><br><span class="line">add(*ilist)</span><br></pre></td></tr></table></figure><p>2、在函数调用的时候，解包字典参数为关键字参数</p><p>在函数调用的时候，如果需要从字典中取出所有元素，作为关键字参数传入函数，那么可以直接使用 ** 解包字典为关键字参数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(p1, p2, p3)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> p1 + p2 + p3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">idict = &#123;<span class="string">'p1'</span>: <span class="number">1</span>, <span class="string">'p2'</span>: <span class="number">2</span>, <span class="string">'p3'</span>: <span class="number">3</span>&#125;</span><br><span class="line">add(idict[<span class="string">'p1'</span>], idict[<span class="string">'p2'</span>], idict[<span class="string">'p3'</span>])</span><br><span class="line">add(**idict)</span><br></pre></td></tr></table></figure><p>3、在函数定义的时候，打包位置参数为元组或者字典</p><p>在函数定义的时候，对于大部分语言，函数参数的个数和参数的名字，都是由函数定义的人员来决定，如果函数的功能和函数参数的个数和名字无关，那么可以对函数调用人员取消参数个数的约束，反转为由函数调用的人员来决定参数的个数和名字，这时可以用 * 把传入的位置参数，打包为元组，可以用 ** 把输入的关键字参数打包为字典</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(*num)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    对传入的所有参数求和</span></span><br><span class="line"><span class="string">    :param num: </span></span><br><span class="line"><span class="string">    :return: </span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> sum(num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_info</span><span class="params">(**people)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    打印人物信息</span></span><br><span class="line"><span class="string">    :param people:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> people.items():</span><br><span class="line">        print(key, value, sep=<span class="string">":"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print_info(**&#123;<span class="string">'name'</span>: <span class="string">'贾宝玉'</span>, <span class="string">'age'</span>: <span class="number">18</span>, <span class="string">'sex'</span>: <span class="string">'male'</span>&#125;)</span><br><span class="line">print_info(**&#123;<span class="string">'name'</span>: <span class="string">'孙悟空'</span>, <span class="string">'age'</span>: <span class="number">108</span>&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="1-两个变量交换"><a href="#1-两个变量交换" class="headerlink" title="1.两个变量交换"></a>1.两个变量交换</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line">a, b = b, a</span><br></pre></td></tr></table></figure><p>python 的 packaging/unpackaging 机制</p><h1 id="2-遍历容器类数据"><a href="#2-遍历容器类数据" class="headerlink" title="2.遍历容器类数据"></a>2.遍历容器类数据</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> alist:</span><br><span class="line">  do_sth_with(item)</span><br></pre></td></tr></table></figure><p>和 java 里面的 for…each 类似</p><a id="more"></a><h1 id="3-关闭资源"><a href="#3-关闭资源" class="headerlink" title="3.关闭资源"></a>3.关闭资源</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(path, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">  do_sth_with(f)</span><br></pre></td></tr></table></figure><p>Python 里面的上下文管理器可以自动关闭资源</p><h1 id="4-运算符"><a href="#4-运算符" class="headerlink" title="4.* 运算符"></a>4.* 运算符</h1><ul><li>* 作为算术运算中的乘法使用，2 * 3，表示 2 乘以 3</li><li>** 作为算术运算中的幂运算使用，3 ** 2，表示 3 的 2 次方</li><li>* 作为列表/元组结构中的打包和解包使用 <ul><li>在函数调用的时候，解包列表/元组参数为位置参数</li><li>在函数定义的时候，打包位置参数为元组</li></ul></li><li>** 作为字典结构中的打包和解包使用 <ul><li>在函数调用的时候，解包字典参数为关键字参数</li><li>在函数定义的时候，打包关键字参数为字典</li></ul></li></ul><p>1、在函数调用的时候，解包列表/元组参数为位置参数</p><p>在函数调用的时候，如果需要从列表中取出所有元素，作为位置参数传入函数，那么可以直接使用 * 解包列表为位置参数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(p1, p2, p3)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> p1 + p2 + p3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ilist = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">add(ilist[<span class="number">0</span>], ilist[<span class="number">1</span>], ilist[<span class="number">2</span>])</span><br><span class="line">add(*ilist)</span><br></pre></td></tr></table></figure><p>2、在函数调用的时候，解包字典参数为关键字参数</p><p>在函数调用的时候，如果需要从字典中取出所有元素，作为关键字参数传入函数，那么可以直接使用 ** 解包字典为关键字参数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(p1, p2, p3)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> p1 + p2 + p3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">idict = &#123;<span class="string">'p1'</span>: <span class="number">1</span>, <span class="string">'p2'</span>: <span class="number">2</span>, <span class="string">'p3'</span>: <span class="number">3</span>&#125;</span><br><span class="line">add(idict[<span class="string">'p1'</span>], idict[<span class="string">'p2'</span>], idict[<span class="string">'p3'</span>])</span><br><span class="line">add(**idict)</span><br></pre></td></tr></table></figure><p>3、在函数定义的时候，打包位置参数为元组或者字典</p><p>在函数定义的时候，对于大部分语言，函数参数的个数和参数的名字，都是由函数定义的人员来决定，如果函数的功能和函数参数的个数和名字无关，那么可以对函数调用人员取消参数个数的约束，反转为由函数调用的人员来决定参数的个数和名字，这时可以用 * 把传入的位置参数，打包为元组，可以用 ** 把输入的关键字参数打包为字典</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(*num)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    对传入的所有参数求和</span></span><br><span class="line"><span class="string">    :param num: </span></span><br><span class="line"><span class="string">    :return: </span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">return</span> sum(num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">add(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_info</span><span class="params">(**people)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    打印人物信息</span></span><br><span class="line"><span class="string">    :param people:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> people.items():</span><br><span class="line">        print(key, value, sep=<span class="string">":"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print_info(**&#123;<span class="string">'name'</span>: <span class="string">'贾宝玉'</span>, <span class="string">'age'</span>: <span class="number">18</span>, <span class="string">'sex'</span>: <span class="string">'male'</span>&#125;)</span><br><span class="line">print_info(**&#123;<span class="string">'name'</span>: <span class="string">'孙悟空'</span>, <span class="string">'age'</span>: <span class="number">108</span>&#125;)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -100,13 +100,13 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
-    
       <category term="Pythonic" scheme="http://jihuawisdom.cn/tags/Pythonic/"/>
     
       <category term="Python特有语法" scheme="http://jihuawisdom.cn/tags/Python%E7%89%B9%E6%9C%89%E8%AF%AD%E6%B3%95/"/>
     
       <category term="Python特色" scheme="http://jihuawisdom.cn/tags/Python%E7%89%B9%E8%89%B2/"/>
+    
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
   </entry>
   
@@ -155,11 +155,11 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
       <category term="类型注释" scheme="http://jihuawisdom.cn/tags/%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A/"/>
     
@@ -201,13 +201,13 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="命名规范" scheme="http://jihuawisdom.cn/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
       <category term="类名" scheme="http://jihuawisdom.cn/tags/%E7%B1%BB%E5%90%8D/"/>
     
@@ -253,13 +253,13 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="注释" scheme="http://jihuawisdom.cn/tags/%E6%B3%A8%E9%87%8A/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
   </entry>
   
@@ -299,11 +299,11 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
       <category term="逗号" scheme="http://jihuawisdom.cn/tags/%E9%80%97%E5%8F%B7/"/>
     
@@ -347,13 +347,13 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="空格" scheme="http://jihuawisdom.cn/tags/%E7%A9%BA%E6%A0%BC/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
   </entry>
   
@@ -393,11 +393,11 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
       <category term="字符串引号" scheme="http://jihuawisdom.cn/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BC%95%E5%8F%B7/"/>
     
@@ -439,6 +439,8 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="缩进" scheme="http://jihuawisdom.cn/tags/%E7%BC%A9%E8%BF%9B/"/>
@@ -448,8 +450,6 @@
       <category term="空格" scheme="http://jihuawisdom.cn/tags/%E7%A9%BA%E6%A0%BC/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
       <category term="换行" scheme="http://jihuawisdom.cn/tags/%E6%8D%A2%E8%A1%8C/"/>
     
@@ -504,6 +504,8 @@
       <category term="python" scheme="http://jihuawisdom.cn/categories/python/"/>
     
     
+      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
+    
       <category term="pep8" scheme="http://jihuawisdom.cn/tags/pep8/"/>
     
       <category term="缩进" scheme="http://jihuawisdom.cn/tags/%E7%BC%A9%E8%BF%9B/"/>
@@ -519,8 +521,6 @@
       <category term="命名规范" scheme="http://jihuawisdom.cn/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
     
       <category term="代码样式" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/"/>
-    
-      <category term="代码风格" scheme="http://jihuawisdom.cn/tags/%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC/"/>
     
   </entry>
   
