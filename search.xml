@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[inspect.getmembers源码分析]]></title>
+    <url>%2F2019%2F12%2F29%2Finspect-getmembers%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[inspect.getmembers()源码分析getmembers概述getmembers(object, predicate=None) 方法 在 inspect 模块中 getmembers(object, predicate=None) 方法可以提取 object 对象中的所有成员，重新组织成((成员1名, 成员1值), (成员2名, 成员2值), ……) 的形式返回，predicate 参数是一个判断方法，如果 predicate 不为 None，那么只返回通过 predicate 判断的成员。 getmembers实现步骤 获取 object 的所有成员的名字，包含 object 的父类的成员，存入 names 列表 从 object 的基类中获取 DynamicClassAttribute 类型的成员，添加到 names 列表中 遍历 names 列表，通过 getattr 方法获取 object 中所有属性的值，getattr(x, ‘y’) 相当于 x.y 用 predicate 判断成员值，把通过判断的成员，以(成员名, 成员值)的形式添加到 results 这个列表中 对 results 列表按 成员名 进行排序 getmembers源码源码文件是 C:/Program Files/Python36/Lib/inspect.py，C:/Program Files 是 python 的安装目录 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748def getmembers(object, predicate=None): """Return all members of an object as (name, value) pairs sorted by name. Optionally, only return members that satisfy a given predicate.""" if isclass(object): mro = (object,) + getmro(object) else: mro = () results = [] processed = set() # 获取 object 的所有成员的名字，包含 object 的父类的成员 names = dir(object) # :dd any DynamicClassAttributes to the list of names if object is a class; # this may result in duplicate entries if, for example, a virtual # attribute with the same name as a DynamicClassAttribute exists # 从 object 的基类中获取 DynamicClassAttribute 类型的成员，添加到 names 列表中 try: for base in object.__bases__: for k, v in base.__dict__.items(): if isinstance(v, types.DynamicClassAttribute): names.append(k) except AttributeError: pass ## 遍历 names 列表，通过 getattr 方法获取 object 中所有属性的值 for key in names: # First try to get the value via getattr. Some descriptors don't # like calling their __get__ (see bug #1785), so fall back to # looking in the __dict__. try: value = getattr(object, key) # handle the duplicate key if key in processed: raise AttributeError except AttributeError: for base in mro: if key in base.__dict__: value = base.__dict__[key] break else: # could be a (currently) missing slot member, or a buggy # __dir__; discard and move on continue if not predicate or predicate(value): # 把通过 predicate 判断的成员值，以(成员名, 成员值)的形式添加到 results 这个列表中 results.append((key, value)) processed.add(key) # 对 results 结果按 key 进行排序 results.sort(key=lambda pair: pair[0]) return results]]></content>
+      <categories>
+        <category>python源码分析</category>
+      </categories>
+      <tags>
+        <tag>inspect</tag>
+        <tag>getmembers</tag>
+        <tag>dir</tag>
+        <tag>__dict__</tag>
+        <tag>__mro__</tag>
+        <tag>getattr</tag>
+        <tag>源码分析</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[wsgi协议简单说明]]></title>
     <url>%2F2019%2F11%2F25%2Fwsgi%E5%8D%8F%E8%AE%AE%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%2F</url>
     <content type="text"><![CDATA[WSGI 协议产生背景在使用 python web 服务器动态产生大量 html 页面的时候，其中使用 tcp sokect 接收 http 请求、返回 http 响应和解析 http 请求是不变的，而产生不同的 HTML 的逻辑一般不同，所以有了把接收 http 请求、解析 http 请求、返回 http 响应和产生 HTML 页面的逻辑分开的需要。 通常把接收 http 请求、解析 http 请求、返回 http 响应 这部分逻辑叫 Web 服务器，动态产生 HTML 页面的逻辑叫 Web 应用。Web 服务器需要调用 Web 应用，这就产生了 WSGI 接口协议，全称 Web Server Gateway Interface，WSGI 协议规定了Python Web 服务器和 Web应用之间通过什么方式相互调用。 WSGI 协议规范和案例 WSGI 应用WSGI 接口定义非常简单，它只要求 Web应用实现一个产生 HTML 页面数据的函数。 比如下面这个 Web 版本的 “Hello, web!”： 123def application(environ, start_response): start_response('200 OK', [('Content-Type', 'text/html')]) return [b'&lt;h1&gt;Hello, web!&lt;/h1&gt;'] 函数有两个参数，environ 里面保存的是 http 请求的相关信息，start_response 是一个回调函数，用来设置 http 响应的响应头 函数的返回值是 http 的响应体 有了 WSGI 协议，Python Web 服务器专门负责，接收 http 请求、解析 http 请求、拼接 http 响应，返回 http 响应，Python Web 应用只需要负责动态产生 http 响应的内容。 WSGI 服务器有了 WSGI 应用还需要 WSGI 服务器，Python 语言包已经提供了一个 WSGI 服务器的简单实现，用于测试和参考，这个 WSGI 服务器实现包叫做 wsgiref，使用方法如下： 123456789from wsgiref.simple_server import make_server# 导入web应用的application函数from hello import application# 创建一个服务器，IP地址为空，端口是8000，web应用函数是applicationhttpd = make_server('', 8000, application)# 开始监听HTTP请求httpd.serve_forever() Django框架中的WSGI]]></content>
